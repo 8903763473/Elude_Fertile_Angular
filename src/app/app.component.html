@@ -1,3 +1,26 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+<div class="leftSideMenu width-50px min-height-100vh bg-orange d-flex align-items-center justify-content-center flex-direction-column gap-20">
+<div class="logo mt-10">
+  <img src="../assets/menu/Logo.svg" alt="">
+</div>
+<div class="Menus width-100 height-100 d-flex align-items-center justify-content-flex-start flex-direction-column gap-20">
+  <div class="width-100 height-40px  d-flex align-items-center justify-content-center" *ngFor="let item of menuItems">
+    <img [id]="'menu-' + item.id" [src]="item.src" [alt]="item.alt" class="pointer">
+  </div>
+</div>
+</div>
+
+
+
+  <ion-router-outlet class="ml-50 bg-white">
+    <ion-header [translucent]="true" class="box-shaddow-none height-50px">
+      <ion-toolbar class="--bg-white">
+        <ion-title>
+          <img src="../assets/menu/LOGO ELUDE.svg" alt="" class="width-100px">
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+  </ion-router-outlet>
+
 </ion-app>

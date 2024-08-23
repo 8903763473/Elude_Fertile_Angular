@@ -35,3 +35,247 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+
+::-webkit-scrollbar {
+    width: 0px !important;
+}
+
+
+
+
+.width-50px {
+    width: 50px !important;
+}
+
+.width-100 {
+    width: 100% !important;
+}
+
+.height-100 {
+    height: 100% !important;
+}
+
+.height-40px {
+    height: 40px !important;
+}
+
+.min-height-100vh {
+    min-height: 100vh !important;
+}
+
+.width-auto {
+    width: auto !important;
+}
+
+.height-auto {
+    height: auto !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.d-block {
+    display: block !important;
+}
+
+.d-grid {
+    display: grid !important;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.align-items-flex-start {
+    align-items: flex-start !important;
+}
+
+.align-items-flex-end {
+    align-items: flex-end !important;
+}
+
+.justify-content-flex-start {
+    justify-content: flex-start !important;
+}
+
+.justify-content-flex-end {
+    justify-content: flex-end !important;
+}
+
+.justify-content-space-around {
+    justify-content: space-around !important;
+}
+
+.justify-content-space-between {
+    justify-content: space-between !important;
+}
+
+.flex-direction-column {
+    flex-direction: column !important;
+}
+
+.opacity-0 {
+    opacity: 0 !important;
+}
+
+.mt-10 {
+    margin-top: 10px !important;
+}
+
+.ml-50 {
+    margin-left: 50px !important;
+}
+
+.mt-50 {
+    margin-top: 50px !important;
+}
+
+.pt-10 {
+    margin-top: 10px !important;
+}
+
+.p {
+    padding: 10px !important;
+}
+
+.gap-10 {
+    gap: 10px !important;
+}
+
+.gap-20 {
+    gap: 20px !important;
+}
+
+.color-white {
+    color: white !important;
+}
+
+.color-black {
+    color: black !important;
+}
+
+.color-orange {
+    color: #F15350 !important;
+}
+
+.bg-white {
+    background-color: white !important;
+}
+
+.bg-orange {
+    background: #F15350 !important;
+}
+
+.border-none {
+    border: none !important;
+}
+
+.--bg-white {
+    --background: white !important;
+}
+
+.box-shaddow-none {
+    box-shadow: none !important;
+}
+
+.width-100px {
+    width: 100px !important;
+}
+
+.pointer {
+    cursor: pointer !important;
+}
+
+.height-50px {
+    height: 50px !important;
+}
+
+.height-60px {
+    height: 60px !important;
+}
+
+.width-88 {
+    width: 88% !important;
+}
+
+.gap-5 {
+    gap: 5px !important;
+}
+
+.ml-10 {
+    margin-left: 10px !important;
+}
+
+.border-orange {
+    border: 0.5px solid #F15350;
+}
+
+.radius-3 {
+    border-radius: 3px !important;
+}
+
+.p-20 {
+    padding: 20px !important;
+}
+
+.mt-20 {
+    margin-top: 20px !important;
+}
+
+.overflow-X {
+    overflow-x: scroll !important;
+}
+
+.color-red {
+    color: red !important;
+}
+
+.hight-115 {
+    height: 115px !important;
+}
+
+.width-130px {
+    width: 130px !important;
+}
+
+.position-relative {
+    position: relative !important;
+}
+
+.position-fixed {
+    position: fixed !important;
+}
+
+.position-absolute {
+    position: absolute !important;
+}
+
+.z-index-10 {
+    z-index: 10 !important;
+}
+
+.left-28 {
+    left: 28px !important;
+}
+
+.right-28 {
+    right: 28px !important;
+}
+
+.overflow {
+    overflow: scroll !important;
+}
+
+.color-grey {
+    color: grey !important;
+}

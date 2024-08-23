@@ -1,20 +1,94 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<section class="mt-50 width-100 height-100 bg-white p-20 overflow">
+  <div class="topSection width-auto height-60px d-flex align-items-center justify-content-space-between">
+    <div class="topSection-left width-auto height-100 d-flex align-items-center justify-content-center">
+      <span class="color-black">Table List</span>
+    </div>
+    <div class="topSection-right width-88 d-flex align-items-center justify-content-flex-end gap-10">
+      <div  class="topSection-right-in-left width-auto d-flex align-items-center justify-content-center gap-10">
+        <span *ngFor="let item of tableStatus" class="color-black d-flex align-items-center justify-content-center gap-5"><p [style.background]="item.color"></p> {{item.name}}</span>
+      </div>
+      <div class="topSection-right-in-right d-flex align-items-center justify-content-center gap-10">
+        <button class="bg-white outline-none border-orange color-orange radius-3">Delivery</button>
+        <button class="bg-white outline-none border-orange color-orange radius-3">Take Away</button>
+      </div>
+    </div>
   </div>
-</ion-content>
+
+  <span style="font-family: Inter;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 30.26px;
+  text-align: left;
+  " class="color-orange mt-20">AC</span>
+
+  <div class="table width-100 hight-115 d-flex align-items-center justify-content-flex-start gap-10 overflow-X mt-10">
+      <div class="table-in width-130px hight-100 d-flex align-items-center justify-content-center gap-10 position-relative" *ngFor="let item of dummy">
+          <div class="table-in-top height-100 position-absolute left-28">
+            <i class="bi bi-archive color-grey" style="transform: rotate(-53deg);"></i>
+            <i class="bi bi-archive color-grey" style="transform: rotate(-128deg);"></i>
+          </div>
+          <div class="table-in-center">
+            <div class="table-in-center-in d-flex align-items-center justify-content-center">
+              <span class="color-orange">A1</span>
+            </div>
+          </div>
+          <div class="table-in-bottom height-100 position-absolute right-28">
+            <i class="bi bi-archive color-grey" style="transform: rotate(53deg);"></i>
+            <i class="bi bi-archive color-grey" style="transform: rotate(128deg);"></i>
+          </div>
+      </div>
+  </div>
+  
+
+  <span style="font-family: Inter;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 30.26px;
+  text-align: left;
+  " class="color-orange mt-20">Garden</span>
+
+  <div class="table width-100 hight-115 d-flex align-items-center justify-content-flex-start gap-10 overflow-X mt-10">
+      <div class="table-in width-130px hight-100 d-flex align-items-center justify-content-center gap-10 position-relative" *ngFor="let item of dummy">
+          <div class="table-in-top height-100 position-absolute left-28">
+            <i class="bi bi-archive color-grey" style="transform: rotate(-53deg);"></i>
+            <i class="bi bi-archive color-grey" style="transform: rotate(-128deg);"></i>
+          </div>
+          <div class="table-in-center">
+            <div class="table-in-center-in d-flex align-items-center justify-content-center">
+              <span class="color-orange">G1</span>
+            </div>
+          </div>
+          <div class="table-in-bottom height-100 position-absolute right-28">
+            <i class="bi bi-archive color-grey" style="transform: rotate(53deg);"></i>
+            <i class="bi bi-archive color-grey" style="transform: rotate(128deg);"></i>
+          </div>
+      </div>
+  </div>
+  
+
+  <span style="font-family: Inter;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 30.26px;
+  text-align: left;
+  " class="color-orange mt-20">Room Service</span>
+
+  <div class="table width-100 hight-115 d-flex align-items-center justify-content-flex-start gap-10 overflow-X mt-10">
+      <div class="table-in width-130px hight-100 d-flex align-items-center justify-content-center gap-10 position-relative" *ngFor="let item of dummy">
+          <div class="table-in-top height-100 position-absolute left-28">
+            <i class="bi bi-archive color-grey" style="transform: rotate(-53deg);"></i>
+            <i class="bi bi-archive color-grey" style="transform: rotate(-128deg);"></i>
+          </div>
+          <div class="table-in-center">
+            <div class="table-in-center-in d-flex align-items-center justify-content-center">
+              <span class="color-orange">R1</span>
+            </div>
+          </div>
+          <div class="table-in-bottom height-100 position-absolute right-28">
+            <i class="bi bi-archive color-grey" style="transform: rotate(53deg);"></i>
+            <i class="bi bi-archive color-grey" style="transform: rotate(128deg);"></i>
+          </div>
+      </div>
+  </div>
+
+</section>
