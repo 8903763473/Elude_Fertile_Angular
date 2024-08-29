@@ -1,3 +1,34 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the theme object.
+$app-theme: mat.define-theme((color: (theme-type: light,
+                primary: mat.$azure-palette,
+                tertiary: mat.$blue-palette,
+            ),
+            density: (scale: 0,
+            )));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+:root {
+    @include mat.all-component-themes($app-theme);
+}
+
+// Comment out the line below if you want to use the pre-defined typography utility classes.
+// For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
+// @include mat.typography-hierarchy($app-theme);
+
+// Comment out the line below if you want to use the deprecated `color` inputs.
+// @include mat.color-variants-backwards-compatibility($app-theme);
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------
@@ -37,11 +68,58 @@
 @import "@ionic/angular/css/palettes/dark.system.css";
 
 
+
+.native-textarea {
+    padding: 0 !important;
+    height: 100% !important;
+    min-height: 63px !important;
+}
+
 ::-webkit-scrollbar {
     width: 0px !important;
 }
 
+ion-content::-webkit-scrollbar {
+    width: 0px !important;
+}
 
+ion-title {
+    background: white !important;
+}
+
+
+.header-ios ion-toolbar:last-of-type {
+    --border-width: 0;
+}
+
+.item-native {
+    --padding: 0 !important;
+}
+
+ion-item::part(native) {
+    // padding: 0 !important;
+}
+
+ion-item::part(inner) {
+    border-bottom: 0.1px solid #d0d0d0 !important;
+}
+
+
+ion-toolbar {
+    --height: 100%;
+    --min-height: 56px;
+}
+
+
+ion-item {
+    // // --inner-padding-left: 10px !important;
+    // --inner-padding: 0 0 0 15px !important;
+    --border-bottom-width: 0.1px;
+    --border-color: #d0d0d0;
+}
+
+
+// ***********************************************BOOTSTRAP CLASSES*******************************************
 
 
 .width-50px {
@@ -62,6 +140,10 @@
 
 .min-height-100vh {
     min-height: 100vh !important;
+}
+
+.min-height-100px {
+    min-height: 100px !important;
 }
 
 .width-auto {
@@ -148,6 +230,10 @@
     padding: 10px !important;
 }
 
+.p-10 {
+    padding: 10px !important;
+}
+
 .gap-10 {
     gap: 10px !important;
 }
@@ -178,6 +264,10 @@
 
 .border-none {
     border: none !important;
+}
+
+.border-bottom-orange {
+    border-bottom: 0.5px solid #F15350 !important;
 }
 
 .--bg-white {
@@ -272,10 +362,205 @@
     right: 28px !important;
 }
 
+.overflow-hidden {
+    overflow: hidden !important;
+}
+
 .overflow {
     overflow: scroll !important;
 }
 
 .color-grey {
     color: grey !important;
+}
+
+.radius-50 {
+    border-radius: 50% !important;
+}
+
+.bg-grey {
+    background-color: grey !important;
+}
+
+.border-red {
+    border: 1px solid red !important;
+}
+
+.border-lightgrey {
+    border: 1px solid #e0e0e0 !important;
+}
+
+.color-lightgrey {
+    color: #d0d0d0 !important;
+}
+
+.radius-7 {
+    border-radius: 7px !important;
+}
+
+.light-orange {
+    background: #FFCDCC !important;
+}
+
+.radius-20 {
+    border-radius: 20px !important;
+}
+
+.font-10 {
+    font-size: 10px !important;
+}
+
+.p-5 {
+    padding: 5px !important;
+}
+
+.m-0 {
+    margin: 0 !important;
+}
+
+.border-orange {
+    border: 1px solid #F15350;
+}
+
+.font-12 {
+    font-size: 12px !important;
+}
+
+.bg-dark {
+    background: #4A575D !important;
+}
+
+.flex-wrap {
+    flex-wrap: wrap !important;
+}
+
+.right-0 {
+    right: 0 !important;
+}
+
+.ml-30 {
+    margin-left: 30px !important;
+}
+
+.min-height-40px {
+    min-height: 40px !important;
+}
+
+.p-3 {
+    padding: 3px !important;
+}
+
+.radius-5 {
+    border-radius: 5px !important;
+}
+
+.height-20px {
+    height: 20px !important;
+}
+
+.left-0 {
+    left: 0 !important;
+}
+
+.top-0 {
+    top: 0 !important;
+}
+
+.right-0 {
+    right: 0 !important;
+}
+
+.bg-overlay {
+    background-color: #00000045 !important;
+}
+
+.p-15 {
+    padding: 15px !important;
+}
+
+.top-minus-10 {
+    top: -10px !important;
+}
+
+.overflow-hidden {
+    overflow: hidden !important;
+}
+
+.width-96 {
+    width: 96% !important;
+}
+
+.top-minus-4 {
+    top: -4px !important;
+}
+
+.top-minus-5 {
+    top: -5px !important;
+}
+
+.z-index-11 {
+    z-index: 11 !important;
+}
+
+.font-20 {
+    font-size: 20px !important;
+}
+
+.oulline-none {
+    outline: none !important;
+}
+
+.max-height-30px {
+    max-height: 30px !important;
+}
+
+.pr-20 {
+    padding-right: 20px !important;
+}
+
+.min-height-30px {
+    min-height: 30px !important;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.bottom-minus-10 {
+    bottom: -10px !important;
+}
+
+.paddingstart-10px {
+    -webkit-padding-start: 10px !important;
+}
+
+.underline {
+    text-decoration: underline !important;
+}
+
+.right-20 {
+    right: 20px !important;
+}
+
+.z-index-1000 {
+    z-index: 1000 !important;
+}
+
+.radius-10 {
+    border-radius: 10px !important;
+}
+
+.ml-15 {
+    margin-left: 15px !important;
+}
+
+.p-15 {
+    padding: 15px !important;
 }

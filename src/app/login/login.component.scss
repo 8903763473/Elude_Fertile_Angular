@@ -1,0 +1,104 @@
+section {
+    .content {
+        width: 80% !important;
+        height: 80% !important;
+        box-shadow: 0px 2px 39px 14px #00000005;
+        background-image: url('../../assets/login-bg.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 40px;
+        justify-content: flex-start;
+
+        .login-content {
+            width: 400px;
+            height: 400px;
+            padding: 20px;
+
+            h3 {
+                font-family: Poppins;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 35px;
+                text-align: left;
+
+            }
+
+            h4 {
+                font-family: IBM Plex Serif;
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 35px;
+                text-align: left;
+            }
+
+            span {
+                font-family: Inter;
+                font-size: 24px;
+                font-weight: 800;
+                line-height: 35px;
+                text-align: left;
+            }
+
+            .userInputs {
+                h5 {
+                    font-family: Poppins;
+                    font-size: 12px;
+                    font-weight: 300;
+                    line-height: 24px;
+                    text-align: left;
+                }
+
+                ion-input {
+                    min-height: 32px !important;
+                    border-radius: 4px;
+                    background: #FFF6F4;
+                    font-family: Poppins;
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 21px;
+                    text-align: left;
+                    --padding-start: 10px !important;
+                }
+            }
+
+            .login_button {
+                background: #F15350 !important;
+                font-family: Poppins;
+                font-size: 12px;
+                font-weight: 600;
+                line-height: 24px;
+                text-align: left;
+                width: 100px;
+                height: 30px;
+                border-radius: 20px;
+                gap: 5px;
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width:750px) {
+    .content {
+        justify-content: center !important;
+        padding: 20px !important;
+    }
+
+    .login-content {
+        width: 100% !important;
+
+        span {
+            font-size: 20px !important;
+        }
+    }
+}
+
+@media screen and (max-width:500px) {
+    .login-content {
+        span {
+            font-size: 15px !important;
+        }
+    }
+}

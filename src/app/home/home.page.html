@@ -11,84 +11,261 @@
         <button class="bg-white outline-none border-orange color-orange radius-3">Delivery</button>
         <button class="bg-white outline-none border-orange color-orange radius-3">Take Away</button>
       </div>
+
+<div class="mob-Filter bg-orange d-flex align-items-center justify-content-center">
+  <span>Order Status</span>
+  <i class="bi bi-chevron-up color-white pointer" (click)="orderStatus=!orderStatus" *ngIf="orderStatus"></i>
+  <i class="bi bi-chevron-down color-white pointer" (click)="orderStatus=!orderStatus" *ngIf="!orderStatus"></i>  
+</div>
+
+
+<div class="mob-order-status position-fixed z-index-10 bg-white radius-10 d-flex align-items-flex-start justify-content-flex-start flex-direction-column gap-10 p-15" *ngIf="orderStatus">
+  <div class="status-optins d-flex align-items-center justify-content-flex-start">
+    <p class="m-0 blank-color"></p> <span class="ml-15"> Blank Table</span>
+  </div>
+  <div class="status-optins d-flex align-items-center justify-content-flex-start">
+    <p class="m-0 running-color"></p> <span class="ml-15"> Running Table</span>
+  </div>
+  <div class="status-optins d-flex align-items-center justify-content-flex-start">
+    <p class="m-0 paid-color"></p> <span class="ml-15"> Paid Table</span>
+  </div>
+</div>
+
+
+<i class="bi bi-funnel color-black pointer mob-funnel" (click)="filter=!filter"></i>
+
+<div class="mob-order-status position-fixed z-index-10 bg-white radius-10 d-flex align-items-flex-start justify-content-flex-start flex-direction-column gap-10 p-15" *ngIf="filter">
+  <div class="status-optins d-flex align-items-center justify-content-center border-orange radius-7 filter">
+    <span class="color-orange"> Blank Table</span>
+  </div>
+  <div class="status-optins d-flex align-items-center justify-content-center border-orange radius-7 filter">
+    <span class="color-orange"> Running Table</span>
+  </div>
+  <div class="status-optins d-flex align-items-center justify-content-center border-orange radius-7 filter">
+    <span class="color-orange"> Paid Table</span>
+  </div>
+</div>
+
     </div>
   </div>
 
-  <span style="font-family: Inter;
-  font-size: 25px;
-  font-weight: 600;
-  line-height: 30.26px;
-  text-align: left;
-  " class="color-orange mt-20">AC</span>
+  <span class="table-Tittle color-orange mt-20">AC</span>
 
-  <div class="table width-100 hight-115 d-flex align-items-center justify-content-flex-start gap-10 overflow-X mt-10">
-      <div class="table-in width-130px hight-100 d-flex align-items-center justify-content-center gap-10 position-relative" *ngFor="let item of dummy">
+  <div class="table width-100 d-flex align-items-center justify-content-flex-start gap-10 overflow-X mt-10">
+      <div class="table-in width-130px min-width-130px hight-115 d-flex align-items-center justify-content-center gap-10 pointer position-relative radius-7 {{i == 3 ? 'border-lightgrey' : ''}}" *ngFor="let item of dummy;let i = index">
           <div class="table-in-top height-100 position-absolute left-28">
-            <i class="bi bi-archive color-grey" style="transform: rotate(-53deg);"></i>
-            <i class="bi bi-archive color-grey" style="transform: rotate(-128deg);"></i>
+            
+            <svg width="57" height="57" viewBox="0 0 57 57"  [attr.fill]="i == 3 ? '#0AC511' : 'white'" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M32.7184 54.0929L54.2108 32.6005C55.6863 31.125 55.6863 28.7029 54.2108 27.2274L31.9668 4.95557L5.07349 31.8488L27.3454 54.1207C28.8209 55.5962 31.2429 55.5962 32.7184 54.1207V54.0929Z"  [attr.fill]="i == 3 ? '#0AC511' : 'white'" stroke="#231F20" stroke-miterlimit="10"/>
+              <path d="M30.0459 55.9303C28.8487 55.9303 27.7073 55.4571 26.8443 54.6219L4.07129 31.8489L31.9668 3.95337L54.7398 26.7264C55.6028 27.5616 56.0483 28.703 56.0483 29.9001C56.0483 31.0972 55.575 32.2386 54.7398 33.1017L33.2474 54.594C32.4122 55.4571 31.2708 55.9025 30.0737 55.9025L30.0459 55.9303ZM6.07576 31.8489L27.8465 53.6196C29.0158 54.7889 31.0481 54.7889 32.2174 53.6196L53.7097 32.1273C54.2944 31.5426 54.6006 30.7631 54.6006 29.9558C54.6006 29.1484 54.2944 28.3411 53.7097 27.7843L31.9668 5.95784L6.07576 31.8489Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M3.98782 27.2552L27.3733 3.86971C28.8488 2.3942 31.6328 0.918692 32.4401 3.56348L33.2753 6.26394L6.38204 33.1572L3.68158 32.3499C0.730557 31.459 2.51231 28.7585 3.98782 27.283V27.2552Z" fill="white" stroke="#231F20" stroke-miterlimit="10"/>
+              <path d="M6.57683 33.9369L3.45876 32.9903C2.06677 32.5727 1.5935 31.7653 1.42646 31.1807C1.00886 29.4546 2.70709 27.5059 3.45876 26.7542L26.8721 3.36872C27.8186 2.42216 29.3498 1.39209 30.714 1.39209C31.3821 1.39209 32.5792 1.64265 33.1082 3.36872L34.0547 6.48678L6.57683 33.9369ZM30.7418 2.81192C29.9901 2.81192 28.8209 3.45224 27.9021 4.37095L4.48884 27.7564C3.31957 28.9257 2.65141 30.1506 2.81845 30.8188C2.90197 31.1529 3.26389 31.4313 3.87636 31.6262L6.18707 32.3221L32.4679 6.06918L31.7719 3.75848C31.5213 2.92328 31.0759 2.81192 30.7418 2.81192Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+              </svg>
+              
+
+            <svg width="20" height="20" viewBox="0 0 57 57" [attr.fill]="i == 3 ? '#0AC511' : 'white'" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M54.0929 24.2816L32.6005 2.78925C31.125 1.31374 28.7029 1.31374 27.2274 2.78925L4.95557 25.0611L31.821 51.9266L54.0929 29.6547C55.5684 28.1792 55.5684 25.7571 54.0929 24.2816Z" [attr.fill]="i == 3 ? '#0AC511' : 'white'" stroke="#231F20" stroke-miterlimit="10"/>
+              <path d="M31.821 52.9287L3.95337 25.0332L26.7264 2.26024C28.4246 0.562015 31.4035 0.562015 33.1017 2.26024L54.594 23.7526C56.3479 25.5065 56.3479 28.374 54.594 30.1279L31.821 52.9009V52.9287ZM5.95784 25.0332L31.821 50.8964L53.5918 29.1257C54.7889 27.9286 54.7889 25.9519 53.5918 24.7548L32.0994 3.26248C30.9302 2.09321 28.8979 2.09321 27.7286 3.26248L5.95784 25.0332Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M27.2552 53.0124L3.86971 29.6269C2.3942 28.1514 0.918692 25.3674 3.56348 24.56L6.26394 23.7249L33.1294 50.5903L32.322 53.2908C31.4312 56.2418 28.7307 54.46 27.2552 52.9845V53.0124Z" fill="white" stroke="#231F20" stroke-miterlimit="10"/>
+              <path d="M30.596 55.6293C29.0091 55.6293 27.3666 54.1538 26.7541 53.5135L3.36862 30.128C2.25503 29.0144 1.08575 27.177 1.47551 25.6736C1.61471 25.089 2.06015 24.2816 3.36862 23.8919L6.48668 22.9453L33.9646 50.4232L33.018 53.5413C32.4613 55.3509 31.292 55.6293 30.6238 55.6293H30.596ZM6.06909 24.5322L3.75838 25.2282C2.95102 25.4787 2.8675 25.8685 2.83966 25.9799C2.64479 26.7037 3.31294 28.04 4.37086 29.0979L27.7563 52.4834C28.7864 53.5135 29.9 54.1816 30.596 54.1816C30.7909 54.1816 31.292 54.1816 31.6261 53.0958L32.3221 50.7851L6.06909 24.5322Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+              </svg>
+              
           </div>
-          <div class="table-in-center">
-            <div class="table-in-center-in d-flex align-items-center justify-content-center">
-              <span class="color-orange">A1</span>
+          <div class="table-in-center" (click)="MeniList()">
+            <div class="table-in-center-in d-flex align-items-center justify-content-center {{i!=3 ? '':'Blank-bg'}}">
+              <span class="{{i!=3 ? 'color-orange':'color-white'}}">A{{i+1}}</span>
             </div>
           </div>
           <div class="table-in-bottom height-100 position-absolute right-28">
-            <i class="bi bi-archive color-grey" style="transform: rotate(53deg);"></i>
-            <i class="bi bi-archive color-grey" style="transform: rotate(128deg);"></i>
+
+            <svg width="57" height="57" viewBox="0 0 57 57"  [attr.fill]="i == 3 ? '#0AC511' : 'white'"  xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M2.90717 32.7184L24.3995 54.2108C25.875 55.6863 28.2971 55.6863 29.7726 54.2108L52.0445 31.9389L25.1512 5.07349L2.87934 27.3454C1.40383 28.8209 1.40383 31.2429 2.87934 32.7184H2.90717Z"  [attr.fill]="i == 3 ? '#0AC511' : 'white'"  stroke="#231F20" stroke-miterlimit="10"/>
+              <path d="M27.0722 56.0483C25.8751 56.0483 24.7337 55.575 23.8707 54.7398L2.3783 33.2474C1.51527 32.4122 1.06982 31.2708 1.06982 30.0737C1.06982 28.8766 1.5431 27.7351 2.3783 26.8721L25.1513 4.07129L53.019 31.939L30.246 54.7119C29.4108 55.575 28.2694 56.0204 27.0444 56.0204L27.0722 56.0483ZM25.1513 6.1036L3.38054 27.8743C2.7959 28.459 2.48966 29.2385 2.48966 30.0459C2.48966 30.8811 2.7959 31.6606 3.38054 32.2174L24.8729 53.7097C26.0422 54.879 28.0745 54.879 29.2437 53.7097L51.0145 31.939L25.1513 6.07576V6.1036Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M29.7448 3.98782L53.1303 27.3733C54.6058 28.8488 56.0813 31.6328 53.4365 32.4401L50.7361 33.2753L23.8428 6.38204L24.678 3.68158C25.5689 0.730557 28.2693 2.51231 29.7448 3.98782Z" fill="white" stroke="#231F20" stroke-miterlimit="10"/>
+              <path d="M50.5133 34.0548L23.0632 6.60473L24.0098 3.48667C24.5666 1.67708 25.7359 1.39868 26.404 1.39868C27.9909 1.39868 29.6334 2.87419 30.2459 3.51451L53.6314 26.9C54.745 28.0136 55.9142 29.851 55.5245 31.3822C55.3853 31.9668 54.9398 32.7742 53.6314 33.1361L50.5133 34.0826V34.0548ZM24.6501 6.18713L50.9309 32.4679L53.2416 31.7719C54.0211 31.5214 54.1325 31.1316 54.1603 31.0203C54.3552 30.2964 53.687 28.9601 52.6291 27.9022L29.2437 4.4889C28.2136 3.45883 27.1 2.79067 26.404 2.79067C26.2091 2.79067 25.708 2.79067 25.3739 3.87643L24.6779 6.18713H24.6501Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+              </svg>
+
+              <svg width="57" height="57" viewBox="0 0 57 57"  [attr.fill]="i == 3 ? '#0AC511' : 'white'"  xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M24.2816 2.90741L2.78925 24.3998C1.31374 25.8753 1.31374 28.2973 2.78925 29.7729L25.0611 52.0447L51.9266 25.1793L29.6547 2.90741C28.1792 1.4319 25.7571 1.4319 24.2816 2.90741Z"  [attr.fill]="i == 3 ? '#0AC511' : 'white'" stroke="#231F20" stroke-miterlimit="10"/>
+                <path d="M25.0332 53.0469L2.26026 30.2739C0.506347 28.52 0.506347 25.6525 2.26026 23.8986L23.7526 2.40624C25.4508 0.708011 28.4297 0.708011 30.1279 2.40624L52.9009 25.1792L25.0332 53.0469ZM26.9542 2.51759C26.119 2.51759 25.3395 2.85167 24.7827 3.40847L3.29033 24.9008C2.09321 26.0979 2.09321 28.0746 3.29033 29.2717L25.0611 51.0424L50.9243 25.1792L29.1535 3.40847C28.5689 2.82383 27.7894 2.51759 26.982 2.51759H26.9542Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M53.0124 29.7451L29.6269 53.1305C28.1514 54.606 25.3674 56.0815 24.56 53.4368L23.7527 50.7363L50.6181 23.8708L53.3186 24.706C56.2696 25.5969 54.4879 28.2974 53.0124 29.7729V29.7451Z" fill="white" stroke="#231F20" stroke-miterlimit="10"/>
+                <path d="M26.2583 55.6082C25.5901 55.6082 24.393 55.3577 23.864 53.6595L22.9175 50.5414L50.3954 23.0635L53.5135 24.01C54.9055 24.4276 55.3787 25.235 55.5458 25.8196C55.9912 27.5457 54.2651 29.4945 53.5135 30.2462L30.128 53.6316C29.1814 54.5782 27.6503 55.6082 26.2861 55.6082H26.2583ZM24.5322 50.9311L25.2282 53.2419C25.4788 54.0771 25.9242 54.1884 26.2583 54.1884C27.0099 54.1884 28.1792 53.5481 29.0979 52.6294L52.4834 29.2439C53.6527 28.0747 54.3208 26.8497 54.1538 26.1815C54.0703 25.8475 53.7083 25.5691 53.0959 25.3742L50.7852 24.6782L24.5044 50.959L24.5322 50.9311Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+                </svg>  
           </div>
+         
+
+              <!-- Save Table******************************************************************** -->
+
+              <svg width="20" height="20" viewBox="0 0 35 31" fill="none" xmlns="http://www.w3.org/2000/svg" class="position-absolute bottom-minus-10 z-index-10 bg-white pointer" (click)="SaveTable()" *ngIf="i==3">
+                <rect x="0.75" y="0.75" width="33.5" height="29.5" rx="5.25" stroke="#0AC511" stroke-width="1.5"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.37868 7.37868C8.5 8.25736 8.5 9.67157 8.5 12.5V18.5C8.5 21.3284 8.5 22.7426 9.37868 23.6213C10.0205 24.2632 10.9482 24.4362 12.5041 24.4828C12.5 24.187 12.5 23.8607 12.5 23.5V22.5C12.5 20.6144 12.5 19.6716 13.0858 19.0858C13.6716 18.5 14.6144 18.5 16.5 18.5H17.5C19.3856 18.5 20.3284 18.5 20.9142 19.0858C21.5 19.6716 21.5 20.6144 21.5 22.5V23.5C21.5 23.867 21.5 24.1984 21.4957 24.4983C23.6735 24.4863 24.8524 24.3902 25.6213 23.6213C26.5 22.7426 26.5 21.3284 26.5 18.5V11.3284C26.5 10.9197 26.5 10.7153 26.4239 10.5315C26.3478 10.3478 26.2032 10.2032 25.9142 9.91423L25.9142 9.91421L23.0858 7.08579C22.7968 6.79676 22.6522 6.65224 22.4685 6.57612C22.2847 6.5 22.0803 6.5 21.6716 6.5H14.5C11.6716 6.5 10.2574 6.5 9.37868 7.37868Z" fill="#0AC511"/>
+                <path d="M21.5 24.5V22.5C21.5 20.6144 21.5 19.6716 20.9142 19.0858C20.3284 18.5 19.3856 18.5 17.5 18.5H16.5C14.6144 18.5 13.6716 18.5 13.0858 19.0858C12.5 19.6716 12.5 20.6144 12.5 22.5V24.5" stroke="#0AC511" stroke-width="1.2"/>
+                <path d="M12.5 11.5H17.5" stroke="#0AC511" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M8.5 12.5C8.5 9.67157 8.5 8.25736 9.37868 7.37868C10.2574 6.5 11.6716 6.5 14.5 6.5H21.6716C22.0803 6.5 22.2847 6.5 22.4685 6.57612C22.6522 6.65224 22.7968 6.79676 23.0858 7.08579L25.9142 9.91421C26.2032 10.2032 26.3478 10.3478 26.4239 10.5315C26.5 10.7153 26.5 10.9197 26.5 11.3284V18.5C26.5 21.3284 26.5 22.7426 25.6213 23.6213C24.7426 24.5 23.3284 24.5 20.5 24.5H14.5C11.6716 24.5 10.2574 24.5 9.37868 23.6213C8.5 22.7426 8.5 21.3284 8.5 18.5V12.5Z" stroke="#0AC511" stroke-width="1.2"/>
+                </svg>
+
       </div>
   </div>
   
 
-  <span style="font-family: Inter;
-  font-size: 25px;
-  font-weight: 600;
-  line-height: 30.26px;
-  text-align: left;
-  " class="color-orange mt-20">Garden</span>
+  <span class="table-Tittle color-orange mt-20">Garden</span>
 
-  <div class="table width-100 hight-115 d-flex align-items-center justify-content-flex-start gap-10 overflow-X mt-10">
-      <div class="table-in width-130px hight-100 d-flex align-items-center justify-content-center gap-10 position-relative" *ngFor="let item of dummy">
+  <div class="table width-100 d-flex align-items-center justify-content-flex-start gap-10 overflow-X mt-10">
+      <div class="table-in width-130px min-width-130px hight-115 d-flex align-items-center justify-content-center gap-10 pointer position-relative radius-7 {{i == 7 ? 'border-lightgrey' : ''}}" *ngFor="let item of dummy;let i = index">
           <div class="table-in-top height-100 position-absolute left-28">
-            <i class="bi bi-archive color-grey" style="transform: rotate(-53deg);"></i>
-            <i class="bi bi-archive color-grey" style="transform: rotate(-128deg);"></i>
+            <svg width="57" height="57" viewBox="0 0 57 57"  [attr.fill]="i == 7 ? '#0AC511' : 'white'" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M32.7184 54.0929L54.2108 32.6005C55.6863 31.125 55.6863 28.7029 54.2108 27.2274L31.9668 4.95557L5.07349 31.8488L27.3454 54.1207C28.8209 55.5962 31.2429 55.5962 32.7184 54.1207V54.0929Z"  [attr.fill]="i == 7 ? '#0AC511' : 'white'" stroke="#231F20" stroke-miterlimit="10"/>
+              <path d="M30.0459 55.9303C28.8487 55.9303 27.7073 55.4571 26.8443 54.6219L4.07129 31.8489L31.9668 3.95337L54.7398 26.7264C55.6028 27.5616 56.0483 28.703 56.0483 29.9001C56.0483 31.0972 55.575 32.2386 54.7398 33.1017L33.2474 54.594C32.4122 55.4571 31.2708 55.9025 30.0737 55.9025L30.0459 55.9303ZM6.07576 31.8489L27.8465 53.6196C29.0158 54.7889 31.0481 54.7889 32.2174 53.6196L53.7097 32.1273C54.2944 31.5426 54.6006 30.7631 54.6006 29.9558C54.6006 29.1484 54.2944 28.3411 53.7097 27.7843L31.9668 5.95784L6.07576 31.8489Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M3.98782 27.2552L27.3733 3.86971C28.8488 2.3942 31.6328 0.918692 32.4401 3.56348L33.2753 6.26394L6.38204 33.1572L3.68158 32.3499C0.730557 31.459 2.51231 28.7585 3.98782 27.283V27.2552Z" fill="white" stroke="#231F20" stroke-miterlimit="10"/>
+              <path d="M6.57683 33.9369L3.45876 32.9903C2.06677 32.5727 1.5935 31.7653 1.42646 31.1807C1.00886 29.4546 2.70709 27.5059 3.45876 26.7542L26.8721 3.36872C27.8186 2.42216 29.3498 1.39209 30.714 1.39209C31.3821 1.39209 32.5792 1.64265 33.1082 3.36872L34.0547 6.48678L6.57683 33.9369ZM30.7418 2.81192C29.9901 2.81192 28.8209 3.45224 27.9021 4.37095L4.48884 27.7564C3.31957 28.9257 2.65141 30.1506 2.81845 30.8188C2.90197 31.1529 3.26389 31.4313 3.87636 31.6262L6.18707 32.3221L32.4679 6.06918L31.7719 3.75848C31.5213 2.92328 31.0759 2.81192 30.7418 2.81192Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+              </svg>
+              
+
+            <svg width="20" height="20" viewBox="0 0 57 57" [attr.fill]="i == 7 ? '#0AC511' : 'white'" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M54.0929 24.2816L32.6005 2.78925C31.125 1.31374 28.7029 1.31374 27.2274 2.78925L4.95557 25.0611L31.821 51.9266L54.0929 29.6547C55.5684 28.1792 55.5684 25.7571 54.0929 24.2816Z" [attr.fill]="i == 7 ? '#0AC511' : 'white'" stroke="#231F20" stroke-miterlimit="10"/>
+              <path d="M31.821 52.9287L3.95337 25.0332L26.7264 2.26024C28.4246 0.562015 31.4035 0.562015 33.1017 2.26024L54.594 23.7526C56.3479 25.5065 56.3479 28.374 54.594 30.1279L31.821 52.9009V52.9287ZM5.95784 25.0332L31.821 50.8964L53.5918 29.1257C54.7889 27.9286 54.7889 25.9519 53.5918 24.7548L32.0994 3.26248C30.9302 2.09321 28.8979 2.09321 27.7286 3.26248L5.95784 25.0332Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M27.2552 53.0124L3.86971 29.6269C2.3942 28.1514 0.918692 25.3674 3.56348 24.56L6.26394 23.7249L33.1294 50.5903L32.322 53.2908C31.4312 56.2418 28.7307 54.46 27.2552 52.9845V53.0124Z" fill="white" stroke="#231F20" stroke-miterlimit="10"/>
+              <path d="M30.596 55.6293C29.0091 55.6293 27.3666 54.1538 26.7541 53.5135L3.36862 30.128C2.25503 29.0144 1.08575 27.177 1.47551 25.6736C1.61471 25.089 2.06015 24.2816 3.36862 23.8919L6.48668 22.9453L33.9646 50.4232L33.018 53.5413C32.4613 55.3509 31.292 55.6293 30.6238 55.6293H30.596ZM6.06909 24.5322L3.75838 25.2282C2.95102 25.4787 2.8675 25.8685 2.83966 25.9799C2.64479 26.7037 3.31294 28.04 4.37086 29.0979L27.7563 52.4834C28.7864 53.5135 29.9 54.1816 30.596 54.1816C30.7909 54.1816 31.292 54.1816 31.6261 53.0958L32.3221 50.7851L6.06909 24.5322Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+            </svg>
           </div>
-          <div class="table-in-center">
-            <div class="table-in-center-in d-flex align-items-center justify-content-center">
-              <span class="color-orange">G1</span>
+         
+
+          <div class="table-in-center" (click)="MeniList()">                
+            <div class="table-in-center-in d-flex align-items-center justify-content-center {{i!=7 ? '':'Blank-bg'}}">
+              <span class="{{i!=7 ? 'color-orange':'color-white'}}">G{{i+1}}</span>
             </div>
           </div>
+          
+
           <div class="table-in-bottom height-100 position-absolute right-28">
-            <i class="bi bi-archive color-grey" style="transform: rotate(53deg);"></i>
-            <i class="bi bi-archive color-grey" style="transform: rotate(128deg);"></i>
+            <svg width="57" height="57" viewBox="0 0 57 57"  [attr.fill]="i == 7 ? '#0AC511' : 'white'"  xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M2.90717 32.7184L24.3995 54.2108C25.875 55.6863 28.2971 55.6863 29.7726 54.2108L52.0445 31.9389L25.1512 5.07349L2.87934 27.3454C1.40383 28.8209 1.40383 31.2429 2.87934 32.7184H2.90717Z"  [attr.fill]="i == 7 ? '#0AC511' : 'white'"  stroke="#231F20" stroke-miterlimit="10"/>
+              <path d="M27.0722 56.0483C25.8751 56.0483 24.7337 55.575 23.8707 54.7398L2.3783 33.2474C1.51527 32.4122 1.06982 31.2708 1.06982 30.0737C1.06982 28.8766 1.5431 27.7351 2.3783 26.8721L25.1513 4.07129L53.019 31.939L30.246 54.7119C29.4108 55.575 28.2694 56.0204 27.0444 56.0204L27.0722 56.0483ZM25.1513 6.1036L3.38054 27.8743C2.7959 28.459 2.48966 29.2385 2.48966 30.0459C2.48966 30.8811 2.7959 31.6606 3.38054 32.2174L24.8729 53.7097C26.0422 54.879 28.0745 54.879 29.2437 53.7097L51.0145 31.939L25.1513 6.07576V6.1036Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M29.7448 3.98782L53.1303 27.3733C54.6058 28.8488 56.0813 31.6328 53.4365 32.4401L50.7361 33.2753L23.8428 6.38204L24.678 3.68158C25.5689 0.730557 28.2693 2.51231 29.7448 3.98782Z" fill="white" stroke="#231F20" stroke-miterlimit="10"/>
+              <path d="M50.5133 34.0548L23.0632 6.60473L24.0098 3.48667C24.5666 1.67708 25.7359 1.39868 26.404 1.39868C27.9909 1.39868 29.6334 2.87419 30.2459 3.51451L53.6314 26.9C54.745 28.0136 55.9142 29.851 55.5245 31.3822C55.3853 31.9668 54.9398 32.7742 53.6314 33.1361L50.5133 34.0826V34.0548ZM24.6501 6.18713L50.9309 32.4679L53.2416 31.7719C54.0211 31.5214 54.1325 31.1316 54.1603 31.0203C54.3552 30.2964 53.687 28.9601 52.6291 27.9022L29.2437 4.4889C28.2136 3.45883 27.1 2.79067 26.404 2.79067C26.2091 2.79067 25.708 2.79067 25.3739 3.87643L24.6779 6.18713H24.6501Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+              </svg>
+
+              <svg width="57" height="57" viewBox="0 0 57 57"  [attr.fill]="i == 7 ? '#0AC511' : 'white'"  xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M24.2816 2.90741L2.78925 24.3998C1.31374 25.8753 1.31374 28.2973 2.78925 29.7729L25.0611 52.0447L51.9266 25.1793L29.6547 2.90741C28.1792 1.4319 25.7571 1.4319 24.2816 2.90741Z"  [attr.fill]="i == 7 ? '#0AC511' : 'white'" stroke="#231F20" stroke-miterlimit="10"/>
+                <path d="M25.0332 53.0469L2.26026 30.2739C0.506347 28.52 0.506347 25.6525 2.26026 23.8986L23.7526 2.40624C25.4508 0.708011 28.4297 0.708011 30.1279 2.40624L52.9009 25.1792L25.0332 53.0469ZM26.9542 2.51759C26.119 2.51759 25.3395 2.85167 24.7827 3.40847L3.29033 24.9008C2.09321 26.0979 2.09321 28.0746 3.29033 29.2717L25.0611 51.0424L50.9243 25.1792L29.1535 3.40847C28.5689 2.82383 27.7894 2.51759 26.982 2.51759H26.9542Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M53.0124 29.7451L29.6269 53.1305C28.1514 54.606 25.3674 56.0815 24.56 53.4368L23.7527 50.7363L50.6181 23.8708L53.3186 24.706C56.2696 25.5969 54.4879 28.2974 53.0124 29.7729V29.7451Z" fill="white" stroke="#231F20" stroke-miterlimit="10"/>
+                <path d="M26.2583 55.6082C25.5901 55.6082 24.393 55.3577 23.864 53.6595L22.9175 50.5414L50.3954 23.0635L53.5135 24.01C54.9055 24.4276 55.3787 25.235 55.5458 25.8196C55.9912 27.5457 54.2651 29.4945 53.5135 30.2462L30.128 53.6316C29.1814 54.5782 27.6503 55.6082 26.2861 55.6082H26.2583ZM24.5322 50.9311L25.2282 53.2419C25.4788 54.0771 25.9242 54.1884 26.2583 54.1884C27.0099 54.1884 28.1792 53.5481 29.0979 52.6294L52.4834 29.2439C53.6527 28.0747 54.3208 26.8497 54.1538 26.1815C54.0703 25.8475 53.7083 25.5691 53.0959 25.3742L50.7852 24.6782L24.5044 50.959L24.5322 50.9311Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+                </svg> 
           </div>
+
+          
+              <!-- View Table******************************************************************** -->
+
+                <svg width="20" height="20" viewBox="0 0 35 31" fill="none" xmlns="http://www.w3.org/2000/svg"class="position-absolute bottom-minus-10 z-index-10 bg-white pointer" (click)="viewTable()" *ngIf="i==7">
+                  <rect x="0.75" y="0.75" width="33.5" height="29.5" rx="5.25" stroke="#0AC511" stroke-width="1.5"/>
+                  <path d="M20.5 15.5C20.5 17.1569 19.1569 18.5 17.5 18.5C15.8431 18.5 14.5 17.1569 14.5 15.5C14.5 13.8431 15.8431 12.5 17.5 12.5C19.1569 12.5 20.5 13.8431 20.5 15.5Z" fill="#0AC511"/>
+                  <path d="M27.3944 15.0528C25.2362 10.7363 21.4031 8.5 17.5 8.5C13.5969 8.5 9.76379 10.7363 7.60557 15.0528C7.46481 15.3343 7.46481 15.6657 7.60557 15.9472C9.76379 20.2637 13.5969 22.5 17.5 22.5C21.4031 22.5 25.2362 20.2637 27.3944 15.9472C27.5352 15.6657 27.5352 15.3343 27.3944 15.0528ZM17.5 20.5C14.5312 20.5 11.4981 18.8792 9.62966 15.5C11.4981 12.1208 14.5312 10.5 17.5 10.5C20.4688 10.5 23.5019 12.1208 25.3703 15.5C23.5019 18.8792 20.4688 20.5 17.5 20.5Z" fill="#0AC511"/>
+                  </svg>
+
       </div>
   </div>
   
 
-  <span style="font-family: Inter;
-  font-size: 25px;
-  font-weight: 600;
-  line-height: 30.26px;
-  text-align: left;
-  " class="color-orange mt-20">Room Service</span>
+  <span class="table-Tittle color-orange mt-20">Room Service</span>
 
-  <div class="table width-100 hight-115 d-flex align-items-center justify-content-flex-start gap-10 overflow-X mt-10">
-      <div class="table-in width-130px hight-100 d-flex align-items-center justify-content-center gap-10 position-relative" *ngFor="let item of dummy">
+  <div class="table width-100 d-flex align-items-center justify-content-flex-start gap-10 overflow-X mt-10">
+      <div class="table-in width-130px min-width-130px hight-115 d-flex align-items-center justify-content-center gap-10 pointer position-relative radius-7 {{i == 1 ? 'border-lightgrey' : ''}}" *ngFor="let item of dummy;let i = index">
           <div class="table-in-top height-100 position-absolute left-28">
-            <i class="bi bi-archive color-grey" style="transform: rotate(-53deg);"></i>
-            <i class="bi bi-archive color-grey" style="transform: rotate(-128deg);"></i>
+            <svg width="57" height="57" viewBox="0 0 57 57"  [attr.fill]="i == 1 ? '#0AC511' : 'white'" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M32.7184 54.0929L54.2108 32.6005C55.6863 31.125 55.6863 28.7029 54.2108 27.2274L31.9668 4.95557L5.07349 31.8488L27.3454 54.1207C28.8209 55.5962 31.2429 55.5962 32.7184 54.1207V54.0929Z"  [attr.fill]="i == 1 ? '#0AC511' : 'white'" stroke="#231F20" stroke-miterlimit="10"/>
+              <path d="M30.0459 55.9303C28.8487 55.9303 27.7073 55.4571 26.8443 54.6219L4.07129 31.8489L31.9668 3.95337L54.7398 26.7264C55.6028 27.5616 56.0483 28.703 56.0483 29.9001C56.0483 31.0972 55.575 32.2386 54.7398 33.1017L33.2474 54.594C32.4122 55.4571 31.2708 55.9025 30.0737 55.9025L30.0459 55.9303ZM6.07576 31.8489L27.8465 53.6196C29.0158 54.7889 31.0481 54.7889 32.2174 53.6196L53.7097 32.1273C54.2944 31.5426 54.6006 30.7631 54.6006 29.9558C54.6006 29.1484 54.2944 28.3411 53.7097 27.7843L31.9668 5.95784L6.07576 31.8489Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M3.98782 27.2552L27.3733 3.86971C28.8488 2.3942 31.6328 0.918692 32.4401 3.56348L33.2753 6.26394L6.38204 33.1572L3.68158 32.3499C0.730557 31.459 2.51231 28.7585 3.98782 27.283V27.2552Z" fill="white" stroke="#231F20" stroke-miterlimit="10"/>
+              <path d="M6.57683 33.9369L3.45876 32.9903C2.06677 32.5727 1.5935 31.7653 1.42646 31.1807C1.00886 29.4546 2.70709 27.5059 3.45876 26.7542L26.8721 3.36872C27.8186 2.42216 29.3498 1.39209 30.714 1.39209C31.3821 1.39209 32.5792 1.64265 33.1082 3.36872L34.0547 6.48678L6.57683 33.9369ZM30.7418 2.81192C29.9901 2.81192 28.8209 3.45224 27.9021 4.37095L4.48884 27.7564C3.31957 28.9257 2.65141 30.1506 2.81845 30.8188C2.90197 31.1529 3.26389 31.4313 3.87636 31.6262L6.18707 32.3221L32.4679 6.06918L31.7719 3.75848C31.5213 2.92328 31.0759 2.81192 30.7418 2.81192Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+              </svg>
+              
+
+            <svg width="20" height="20" viewBox="0 0 57 57" [attr.fill]="i == 1 ? '#0AC511' : 'white'" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M54.0929 24.2816L32.6005 2.78925C31.125 1.31374 28.7029 1.31374 27.2274 2.78925L4.95557 25.0611L31.821 51.9266L54.0929 29.6547C55.5684 28.1792 55.5684 25.7571 54.0929 24.2816Z" [attr.fill]="i == 1 ? '#0AC511' : 'white'" stroke="#231F20" stroke-miterlimit="10"/>
+              <path d="M31.821 52.9287L3.95337 25.0332L26.7264 2.26024C28.4246 0.562015 31.4035 0.562015 33.1017 2.26024L54.594 23.7526C56.3479 25.5065 56.3479 28.374 54.594 30.1279L31.821 52.9009V52.9287ZM5.95784 25.0332L31.821 50.8964L53.5918 29.1257C54.7889 27.9286 54.7889 25.9519 53.5918 24.7548L32.0994 3.26248C30.9302 2.09321 28.8979 2.09321 27.7286 3.26248L5.95784 25.0332Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M27.2552 53.0124L3.86971 29.6269C2.3942 28.1514 0.918692 25.3674 3.56348 24.56L6.26394 23.7249L33.1294 50.5903L32.322 53.2908C31.4312 56.2418 28.7307 54.46 27.2552 52.9845V53.0124Z" fill="white" stroke="#231F20" stroke-miterlimit="10"/>
+              <path d="M30.596 55.6293C29.0091 55.6293 27.3666 54.1538 26.7541 53.5135L3.36862 30.128C2.25503 29.0144 1.08575 27.177 1.47551 25.6736C1.61471 25.089 2.06015 24.2816 3.36862 23.8919L6.48668 22.9453L33.9646 50.4232L33.018 53.5413C32.4613 55.3509 31.292 55.6293 30.6238 55.6293H30.596ZM6.06909 24.5322L3.75838 25.2282C2.95102 25.4787 2.8675 25.8685 2.83966 25.9799C2.64479 26.7037 3.31294 28.04 4.37086 29.0979L27.7563 52.4834C28.7864 53.5135 29.9 54.1816 30.596 54.1816C30.7909 54.1816 31.292 54.1816 31.6261 53.0958L32.3221 50.7851L6.06909 24.5322Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+              </svg>
           </div>
-          <div class="table-in-center">
-            <div class="table-in-center-in d-flex align-items-center justify-content-center">
-              <span class="color-orange">R1</span>
+          <div class="table-in-center" (click)="MeniList()">
+            <div class="table-in-center-in d-flex align-items-center justify-content-center {{i!=1 ? '':'Blank-bg'}}">
+              <span class="{{i!=1 ? 'color-orange':'color-white'}}">R{{i+1}}</span>
             </div>
           </div>
           <div class="table-in-bottom height-100 position-absolute right-28">
-            <i class="bi bi-archive color-grey" style="transform: rotate(53deg);"></i>
-            <i class="bi bi-archive color-grey" style="transform: rotate(128deg);"></i>
+            <svg width="57" height="57" viewBox="0 0 57 57"  [attr.fill]="i == 1 ? '#0AC511' : 'white'"  xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M2.90717 32.7184L24.3995 54.2108C25.875 55.6863 28.2971 55.6863 29.7726 54.2108L52.0445 31.9389L25.1512 5.07349L2.87934 27.3454C1.40383 28.8209 1.40383 31.2429 2.87934 32.7184H2.90717Z"  [attr.fill]="i == 1 ? '#0AC511' : 'white'"  stroke="#231F20" stroke-miterlimit="10"/>
+              <path d="M27.0722 56.0483C25.8751 56.0483 24.7337 55.575 23.8707 54.7398L2.3783 33.2474C1.51527 32.4122 1.06982 31.2708 1.06982 30.0737C1.06982 28.8766 1.5431 27.7351 2.3783 26.8721L25.1513 4.07129L53.019 31.939L30.246 54.7119C29.4108 55.575 28.2694 56.0204 27.0444 56.0204L27.0722 56.0483ZM25.1513 6.1036L3.38054 27.8743C2.7959 28.459 2.48966 29.2385 2.48966 30.0459C2.48966 30.8811 2.7959 31.6606 3.38054 32.2174L24.8729 53.7097C26.0422 54.879 28.0745 54.879 29.2437 53.7097L51.0145 31.939L25.1513 6.07576V6.1036Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M29.7448 3.98782L53.1303 27.3733C54.6058 28.8488 56.0813 31.6328 53.4365 32.4401L50.7361 33.2753L23.8428 6.38204L24.678 3.68158C25.5689 0.730557 28.2693 2.51231 29.7448 3.98782Z" fill="white" stroke="#231F20" stroke-miterlimit="10"/>
+              <path d="M50.5133 34.0548L23.0632 6.60473L24.0098 3.48667C24.5666 1.67708 25.7359 1.39868 26.404 1.39868C27.9909 1.39868 29.6334 2.87419 30.2459 3.51451L53.6314 26.9C54.745 28.0136 55.9142 29.851 55.5245 31.3822C55.3853 31.9668 54.9398 32.7742 53.6314 33.1361L50.5133 34.0826V34.0548ZM24.6501 6.18713L50.9309 32.4679L53.2416 31.7719C54.0211 31.5214 54.1325 31.1316 54.1603 31.0203C54.3552 30.2964 53.687 28.9601 52.6291 27.9022L29.2437 4.4889C28.2136 3.45883 27.1 2.79067 26.404 2.79067C26.2091 2.79067 25.708 2.79067 25.3739 3.87643L24.6779 6.18713H24.6501Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+              </svg>
+
+              <svg width="57" height="57" viewBox="0 0 57 57"  [attr.fill]="i == 1 ? '#0AC511' : 'white'"  xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M24.2816 2.90741L2.78925 24.3998C1.31374 25.8753 1.31374 28.2973 2.78925 29.7729L25.0611 52.0447L51.9266 25.1793L29.6547 2.90741C28.1792 1.4319 25.7571 1.4319 24.2816 2.90741Z"  [attr.fill]="i == 1 ? '#0AC511' : 'white'" stroke="#231F20" stroke-miterlimit="10"/>
+                <path d="M25.0332 53.0469L2.26026 30.2739C0.506347 28.52 0.506347 25.6525 2.26026 23.8986L23.7526 2.40624C25.4508 0.708011 28.4297 0.708011 30.1279 2.40624L52.9009 25.1792L25.0332 53.0469ZM26.9542 2.51759C26.119 2.51759 25.3395 2.85167 24.7827 3.40847L3.29033 24.9008C2.09321 26.0979 2.09321 28.0746 3.29033 29.2717L25.0611 51.0424L50.9243 25.1792L29.1535 3.40847C28.5689 2.82383 27.7894 2.51759 26.982 2.51759H26.9542Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M53.0124 29.7451L29.6269 53.1305C28.1514 54.606 25.3674 56.0815 24.56 53.4368L23.7527 50.7363L50.6181 23.8708L53.3186 24.706C56.2696 25.5969 54.4879 28.2974 53.0124 29.7729V29.7451Z" fill="white" stroke="#231F20" stroke-miterlimit="10"/>
+                <path d="M26.2583 55.6082C25.5901 55.6082 24.393 55.3577 23.864 53.6595L22.9175 50.5414L50.3954 23.0635L53.5135 24.01C54.9055 24.4276 55.3787 25.235 55.5458 25.8196C55.9912 27.5457 54.2651 29.4945 53.5135 30.2462L30.128 53.6316C29.1814 54.5782 27.6503 55.6082 26.2861 55.6082H26.2583ZM24.5322 50.9311L25.2282 53.2419C25.4788 54.0771 25.9242 54.1884 26.2583 54.1884C27.0099 54.1884 28.1792 53.5481 29.0979 52.6294L52.4834 29.2439C53.6527 28.0747 54.3208 26.8497 54.1538 26.1815C54.0703 25.8475 53.7083 25.5691 53.0959 25.3742L50.7852 24.6782L24.5044 50.959L24.5322 50.9311Z" fill="#070707" stroke="#231F20" stroke-miterlimit="10"/>
+                </svg> 
           </div>
+
       </div>
   </div>
+
+
+  <!-- **************************************************POPUP**************************************************** -->
+
+  <div *ngIf="settle" class="Settle width-100 height-100 position-fixed top-0 left-0 bg-overlay z-index-10 d-flex align-items-center justify-content-center">
+
+<div class="Settle-In">
+<div class="title bg-orange">
+  <span>Settle & Save for - A2 </span>
+  <i class="bi bi-x color-white pointer" (click)="settle=false"></i>
+</div>
+
+<div class="Form p-10 border-bottom-orange">
+  <div class="inputs">
+    <span>Payment Type</span>
+    <select (change)="onPaymentMethodChange($event)">
+      <option value="Select" disabled [selected]="payMethod === undefined">Select</option>
+      <option value="Cash" [selected]="payMethod === 'Cash'">Cash</option>
+      <option value="Card" [selected]="payMethod === 'Card'">Card</option>
+      <option value="Others" [selected]="payMethod === 'Others'">Others</option>
+    </select>
+  </div>
+  <div class="inputs">
+    <span>Settlement amount</span>
+      <ion-input placeholder="Enter settlement amount" class="paddingstart-10px"></ion-input>
+  </div>  
+  <div class="inputs" *ngIf="selectedPaymentMethod=='Cash'">
+    <span>Customer Paid</span>
+      <ion-input placeholder="Enter paid" class="paddingstart-10px"></ion-input>
+  </div>  
+  <div class="inputs" *ngIf="selectedPaymentMethod=='Cash'">
+    <span>Return to Customer</span>
+      <ion-input placeholder="Enter Customer amount" class="paddingstart-10px"></ion-input>
+  </div>
+  <div class="masterCard mt-10" *ngIf="selectedPaymentMethod!='Cash'">
+    <select>
+      <option value="Master Card" disabled>Master Card</option>
+      
+      <option value="Google Pay">Google Pay</option>
+      <option value="UPI">UPI</option>
+      <option value="Paytm">Paytm</option>
+      <option value="PhonePe">PhonePe</option>
+    </select>
+  </div>
+</div>
+
+<div class="buttons">
+  <button class="bg-white border-orange color-orange" (click)="settle=false">Cancel</button>
+  <button class="bg-orange color-white" (click)="settle=false">Settle & Save</button>
+</div>
+
+</div>
+
+
+  </div>
+
+
+
 
 </section>

@@ -1,0 +1,391 @@
+<section class="mt-50 width-100 height-100 min-height-100vh bg-white overflow">
+   <div class="menu_contents">
+      <div class="menu_items width-100 height-100 min-height-100vh bg-white">
+         <div class="menu_icons width-100 d-flex align-items-center justify-content-flex-end gap-10 p-10">
+            <button (click)="InTable=true">In Table</button> 
+            <span class="width-20px height-20px d-flex align-items-center justify-content-center radius-50 pointer bg-orange"><i class="bi bi-chevron-left color-white font-10"></i></span>
+            <span class="width-20px height-20px d-flex align-items-center justify-content-center radius-50 pointer bg-orange"><i class="bi bi-chevron-right color-white font-10"></i></span>   
+         </div>
+         <div class="menuCategory width-100 height-140px d-flex align-items-center justify-content-flex-start gap-10 bg-white overflow-X">
+            <div class="menuCategory-In radius-7 p-10 d-flex align-items-flex-start justify-content-space-between flex-direction-column pointer" *ngFor="let item of menuItems;let i = index" [ngClass]="i === 0 ? 'light-orange border-red ' : 'light-white border-lightgrey'">
+            <img src="{{item.img}}" alt="">
+            <div class="aboutCategory width-100 d-flex align-items-flex-start justify-content-flex-start flex-direction-column gap-10 ">
+               <span>{{item.name}}</span>
+               <p>{{item.description}}</p>
+            </div>
+         </div>
+      </div>
+      <div class="foodTitle width-100 height-auto d-flex align-items-center justify-content-space-between gap-10 flex-wrap bg-white">
+         <h4 class="color-black">Special Menu for you</h4>
+         <div class="searchSection width-auto d-flex align-items-center justify-content-flex-end gap-10">
+            <div class="searchSection-In d-flex align-items-center justify-content-flex-start">
+               <ion-input placeholder="Search Product">
+               </ion-input>
+               <i class="bi bi-search color-black pointer font-10"></i>
+            </div>
+            <div class="searchSection-In d-flex align-items-center justify-content-flex-start">
+               <ion-input placeholder="Short Code">
+               </ion-input>
+               <i class="bi bi-search color-black pointer font-10"></i>
+            </div>
+         </div>
+      </div>
+      <div class="AllMenus height-auto mt-10">
+         <div class="menuFood width-100 height-auto d-flex align-items-center justify-content-flex-start gap-10 bg-white overflow-X">
+            <div class="menuFood-In height-140px p-10 d-flex align-items-center justify-content-space-between flex-direction-column radius-20" *ngFor="let item of dummy;let i = index" [ngClass]="i === 0 ? 'light-orange border-red ' : 'light-white border-lightgrey'">
+            <img src="../../assets/Food/Food.png" alt="" (dblclick)="SideDish=true">
+            <div class="aboutCategory width-100 d-flex align-items-center justify-content-flex-start flex-direction-column gap-10">
+               <span>Super Delicious
+               Chicken</span>
+               <div class="AddFood pointer" (click)="SideDish=true">
+                  <i class="bi bi-plus-circle-fill"></i> <span>Add</span>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   </div>
+
+   <div class="width-100 height-100 position-fixed top-0 left-0 z-index-1 bg-overlay" *ngIf="InTable" (click)="InTable=false"></div>
+   <div class="menu_summary border-lightgrey radius-7 p-5 overflow max-height-93 min-width-250px z-index-10" [class.inTableOpen]="InTable">
+     
+      <div class="summaryTab width-auto d-flex align-items-center justify-content-space-between">
+         <button (click)="tabClick(1)" [class.activeTab]="selectedTab==1">Dine in</button>
+         <button (click)="tabClick(2)" [class.activeTab]="selectedTab==2">Take Away</button>
+         <button (click)="tabClick(3)" [class.activeTab]="selectedTab==3">Delivery</button>
+      </div>
+      <div class="menuNotSelected width-100 d-flex align-items-center justify-content-center flex-direction-column gap-10 mt-10" *ngIf="orderedFoods.length===0 && !viewTableOrders">
+         <img src="../../assets/Food/menu_not_selected.svg" alt="" class="width-140">
+         <h3 class="m-0">No item selected</h3>
+         <p class="m-0">Please select item from left menu item</p>
+      </div>
+      <div class="menuSelected width-100 d-flex align-items-center justify-content-center flex-direction-column gap-10 mt-10" *ngIf="orderedFoods.length>0 || viewTableOrders">
+         <div *ngIf="viewTableOrders" class="viewTableOrders d-flex align-items-center justify-content-space-between">
+            <span>KOT-10</span>
+            <span>Time - 15:40</span>         
+         </div>
+         <div class="menuSelected-In border-lightgrey min-height-40px width-100 d-flex align-items-center justify-content-flex-start gap-10 p-3 radius-5" *ngFor="let item of orderedFoods;let i = index">
+            <img src="../../assets/Food/juice.png" alt="">
+            <div class="menuCenter">
+               <p class="color-black">Original Chess Meat Burger With
+                  Chips (Non Veg)
+               </p>
+               <div class="quantity mt-10">
+                  <img src="../../assets/specialNotes.svg" alt="" class="specialNotes-icon pointer" (click)="specialNotes=true">
+                  <div class="quantityIn">
+                     <span class="pointer">-</span>
+                     <ion-input value="1" readonly></ion-input>
+                     <span class="pointer">+</span>
+                  </div>
+               </div>
+            </div>
+            <div class="menuRight">
+               <i class="bi bi-x pointer" (click)="RemoveFoodAlert(item.id)"></i>
+               <span>$ 15.00</span>
+            </div>
+            <div>
+            </div>
+         </div>
+      </div>
+
+      <div class="swipeup width-100 height-auto radius-5 d-flex align-items-center justify-content-flex-start flex-direction-column gap-10 mt-10 p-3 z-index-10"  *ngIf="orderedFoods.length>0 || viewTableOrders">
+         <div class="swipeAllFields width-96 d-flex align-items-center justify-content-space-between flex-direction-column overflow mt-10">
+            <!-- <div class="width-100 d-flex align-items-center justify-content-center position-absolute top-minus-4">
+               <img src="../../assets/swipe_down.svg" alt="" class="pointer" (click)="swipeUp(1)">
+            </div> -->
+            <div class="swipeup-In width-96 d-flex align-items-center justify-content-flex-start gap-10">
+               <span class="key">Loyality Points <p class="m-0">:</p> </span>
+               <button class="color-orange">300</button>
+            </div>
+            <div class="swipeup-In width-96 d-flex align-items-center justify-content-flex-start gap-10">
+               <span class="key">Discount  <p class="m-0">:</p>   
+                  <!-- <a (click)="applyDiscount=true" class="underline pointer">more</a> -->
+               </span>
+               <p class="color-orange m-0 font-10"> (0.00) </p>
+            </div>
+            <div class="swipeup-In width-96 d-flex align-items-center justify-content-flex-start gap-10">
+               <span class="key">Cash  <p class="m-0">:</p>  </span>
+               <button class="color-orange">0</button>
+            </div>
+            <div class="swipeup-In width-96 d-flex align-items-center justify-content-flex-start gap-10">
+               <span class="key">Sub-Total <p class="m-0">:</p>  </span>
+               <button class="color-orange">0</button>
+            </div>
+            <div class="swipeup-In width-96 d-flex align-items-center justify-content-flex-start gap-10">
+               <span class="key">Parcel Charge <p class="m-0">:</p> </span>
+               <p class="color-orange m-0 font-10">30.10</p>
+            </div>
+            <!-- <div class="swipeup-In width-96 d-flex align-items-center justify-content-space-between gap-10">
+               <span>Round OFF</span>
+               <p class="color-orange m-0 font-10">-0.40</p>
+            </div>
+            <div class="swipeup-In width-96 d-flex align-items-center justify-content-space-between gap-10">
+               <span>Customer Paid</span>
+               <button class="color-orange">0</button>
+            </div>
+            <div class="swipeup-In width-96 d-flex align-items-center justify-content-space-between gap-10">
+               <span>Return to Customer</span>
+               <p class="color-orange m-0 font-10">0</p>
+            </div> -->
+         </div>
+      </div>
+
+      <div class="TotalAmt width-100 d-flex align-items-center justify-content-center flex-direction-column gap-10 mt-20 position-relative">
+         <!-- <div class="width-100 d-flex align-items-center justify-content-center position-absolute top-minus-5">
+            <img src="../../assets/swipe_up.svg" alt="" class="pointer" (click)="swipeUp(2)">
+         </div> -->
+         <span class="amt">
+            Total Amount 
+            <p>$ {{orderedFoods.length * 15}}.00</p>
+         </span>
+         <span class="color-lightgrey emptyBorder">---------------------------------------------------------------------------</span>
+         <div class="amountTotalButton width-100 d-flex align-items-center justify-content-space-around">
+            <button class="bg-orange color-white" (click)="splitBillId=1">Split</button>
+            <button class="bg-white color-orange border-orange gap-10"><i class="bi bi-app font-12"></i>Complementary</button>
+         </div>
+      </div>
+
+      <div class="paymentOptions width-100 d-flex align-items-center justify-content-center mt-10">
+         <div class="paymentOptions-In width-100 d-flex align-items-center justify-content-space-around mt-10">
+            <div class="innerpaySection" (click)="doPayment('Cash')">
+               <span class="pointer">
+               <img src="../../assets/Food/cash.svg" alt="">
+               </span>
+               <p>Cash</p>
+            </div>
+            <div class="innerpaySection" (click)="doPayment('Card')">
+               <span class="pointer">
+               <img src="../../assets/Food/credit.svg" alt="">
+               </span>
+               <p>Credit Card</p>
+            </div>
+            <div class="innerpaySection" (click)="doPayment('Others')">
+               <span class="pointer">
+               <img src="../../assets/Food/others.svg" alt="">
+               </span>
+               <p>Others</p>
+            </div>
+            <!-- <div class="innerpaySection">
+               <span class="pointer">
+               <img src="../../assets/Food/qr.svg" alt="">
+               </span>
+               <p>QR Code</p>
+               </div> -->
+         </div>
+      </div>
+
+      <div class="bottom-buttons width-100 d-flex align-items-center justify-content-space-around mt-10">
+         <button>Save</button>
+         <button>Save & print</button>
+         <button class="bg-dark">KOT</button>
+      </div>
+
+      <!-- <div class="bottom-buttons width-100 d-flex align-items-center justify-content-space-around mt-10">
+         <button class="bg-dark">KOT</button>
+         <button class="bg-dark">KOT & print</button>
+         <button>Hold</button>
+         </div> -->
+   </div>
+   <!-- *************************************************POPUP****************************************** -->
+
+   <div class="splitBill width-100 height-100 position-fixed left-0 top-0 z-index-10 bg-overlay min-height-100vh d-flex align-items-center justify-content-center" *ngIf="splitBillId!=0">
+      <div class="splitBill-in p-10 radius-5">
+         <div class="splitBill-in-Top width-100 d-flex align-items-center justify-content-space-between">
+            <span class="color-black">Split Bill</span>
+            <i class="bi bi-x-lg color-orange pointer" (click)="splitBillId=0"></i>
+         </div>
+         <div class="splitBill-in-bottom mt-10">
+            <div class="splitBill-in-bottom-left">
+               <div
+               class="splitBill-left-box p-5 pointer mob-border"
+               [ngClass]="{'color-black': splitBillId !== 1, 'splitbillActive': splitBillId === 1}"
+               (click)="choosenSplitBill(1)">
+               <img [src]="splitBillId === 1 ? '../../assets/color-percent.svg' : '../../assets/dark-percent.svg'" alt=""/>          
+               <span>Portion Wise</span>
+            </div>
+            <div class="splitBill-left-box p-5 pointer mob-border"
+            [ngClass]="{'color-black': splitBillId !== 2, 'splitbillActive': splitBillId === 2}"
+            (click)="choosenSplitBill(2)">
+            <img [src]="splitBillId === 2 ? '../../assets/color-percent.svg' : '../../assets/dark-percent.svg'" alt=""/>  
+            <span>Percentage Wise</span>
+         </div>
+         <div class="splitBill-left-box p-5 pointer border-none"
+         [ngClass]="{'color-black': splitBillId !== 3, 'splitbillActive': splitBillId === 3}"
+         (click)="choosenSplitBill(3)">
+         <img src="../../assets/item_list.svg" alt="" />
+         <span>Item Wise</span>
+      </div>
+   </div>
+   <div  class="splitBill-in-bottom-right" *ngIf="splitBillId==1">
+      <span class="color-black">Please Enter number in which bill can be splited</span>
+      <ion-input placeholder="Enter portion here"></ion-input>
+      <div class="buttons">
+         <button class="bg-white border-orange color-orange">Cancel</button>
+         <button class="bg-orange color-white">Save</button>
+      </div>
+   </div>
+   <div class="splitBill-in-bottom-right" *ngIf="splitBillId==2">
+      <span class="color-black">Please provide only Number</span>
+      <div class="input width-100">
+         <p class="inputTitle">Percentage Number :</p>
+         <ion-input placeholder="Enter percentage like 80"></ion-input>
+      </div>
+      <div class="input width-100">
+         <p class="inputTitle">Percentage Number :</p>
+         <ion-input placeholder="Enter percentage like 20"></ion-input>
+      </div>
+      <div class="buttons">
+         <button class="bg-white border-orange color-orange">Cancel</button>
+         <button class="bg-orange color-white">Save</button>
+      </div>
+      <button class="addMore bg-orange color-white">Add More</button>
+   </div>
+   </div>
+   </div>
+   </div>
+
+   <div class="removeFood width-100 height-100 position-fixed left-0 top-0 z-index-10 bg-overlay min-height-100vh d-flex align-items-center justify-content-center" *ngIf="removeFood==true">
+      <div class="removeFoodIn bg-white radius-5 p-15">
+         <div class="removeFoodIn-Top width-100 d-flex align-items-center justify-content-space-between">
+            <span class="color-black">Delete Pizza</span>
+            <i class="bi bi-x-lg color-orange pointer" (click)="splitBillId=0;removeFood=false"></i>
+         </div>
+         <h3 class="color-black">Reason *</h3>
+         <div class="reasonBox border-lightgrey">
+            <ion-textarea class="p-3 color-orange font-10" required [(ngModel)]="reasonToDeleteFood"></ion-textarea>
+            <p class="color-orange font-10" *ngIf="validateReason">Field is required *</p>
+         </div>
+         <div class="buttons1 width-100 d-flex align-items-center justify-content-flex-end gap-20 mt-10">
+            <button class="bg-white border-orange color-orange" (click)="cancelDelete()">Cancel</button>
+            <button class="bg-orange color-white" (click)="confirmDelete()">Confirm</button>
+         </div>
+      </div>
+   </div>
+
+
+   <div class="applyDiscount width-100 height-100 left-0 bg-overlay position-fixed top-0 z-index-10 d-flex align-items-center justify-content-flex-end" *ngIf="applyDiscount">
+      <div class="applyDiscount-In position-relative width-400 bg-white radius-5 p-15">
+         <i class="bi bi-x position-absolute closeIcon color-black pointer" (click)="applyDiscount=false"></i>
+         <span class="title">Applied Discount</span>
+         <div class="width-100 min-height-40px border-lightgrey p-10 applySection radius-5 mt-20">
+            <div class="doApply width-100 d-flex align-items-center justify-content-space-between">
+               <p class="font-10 color-black m-0">Coupon Code</p>
+               <ion-input class="border-lightgrey radius-5 color-black font-10" placeholder="Enter Coupon Code"></ion-input>
+            </div>
+            <div class="buttons mt-10">
+               <button class="bg-white border-orange color-orange" (click)="applyDiscount=false">Clear</button>
+               <button class="bg-orange color-white" (click)="applyDiscount=false">Apply</button>
+            </div>
+         </div>
+         <div class="width-100 min-height-40px border-lightgrey p-10 applySection radius-5 mt-20">
+            <div class="doApply width-100 d-flex align-items-center justify-content-space-between">
+               <p class="font-10 color-black m-0">Customer Discount</p>
+               <select class="bg-white oulline-none border-lightgrey radius-5 color-black font-10 form-select form-select-sm" aria-label=".form-select-sm example">
+                  <option selected>Select</option>
+                  <option value="All">All</option>
+               </select>
+            </div>
+            <div class="buttons mt-10">
+               <button class="bg-white border-lightgrey color-orange" style="width: 80px !important;"> <i class="bi bi-plus-circle"></i> Add More</button>
+            </div>
+         </div>
+         <div class="width-100 min-height-40px border-lightgrey p-10 applySection radius-5 mt-20">
+            <div class="doApply width-100 d-flex align-items-center justify-content-space-between">
+               <p class="font-10 color-black m-0">Mention Reason</p>
+               <ion-input class="border-lightgrey radius-5 color-black font-10" placeholder="Reason"></ion-input>
+            </div>
+         </div>
+         <div class="applyDiscount-bottom width-100 min-height-40px d-flex align-items-center justify-content-flex-end mt-20">
+            <div class="discount-bottom-in width-100 height-100 d-flex align-items-center justify-content-flex-start gap-10">
+               <div class="radio width-100 d-flex align-items-center justify-content-flex-start gap-10">
+                  <div class="form-check">
+                     <input type="radio" value="Percentage">
+                     <label class="form-check-label" for="flexRadioDefault2">
+                     Percentage
+                     </label>
+                  </div>
+                  <div class="form-check">
+                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                     <label class="form-check-label" for="flexRadioDefault2">
+                     Fixed
+                     </label>
+                  </div>
+               </div>
+               <div class="doApply width-100 d-flex align-items-center justify-content-flex-start">
+                  <ion-input class="border-lightgrey radius-5 color-black font-10 min-height-30px" style="--padding-start: 10px;" placeholder="Reason"></ion-input>
+               </div>
+               <div class="buttons mt-10">
+                  <button class="bg-white border-orange color-orange" (click)="applyDiscount=false">Cancel</button>
+                  <button class="bg-orange color-white" (click)="applyDiscount=false">Save</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="sideDish width-100 height-100 left-0 bg-overlay position-fixed top-0 z-index-10 d-flex align-items-center justify-content-center" *ngIf="SideDish">
+      <div class="sideDish-In bg-white radius-7 p-10">
+         <span class="width-100 d-flex align-items-center justify-content-flex-end"><i class="bi bi-x color-black pointer" (click)="SideDish=false"></i></span>
+         <div class="sideDish-top width-100 height-auto d-flex align-items-flex-start justify-content-space-between pt-10">
+            <span class="color-black">Idly</span>
+            <ion-input placeholder="search Items"><i class="bi bi-search color-black position-absolute d-flex pointer"></i></ion-input>
+         </div>
+         <div class="sideDish-content mt-10 width-100 height-auto d-flex align-items-flex-start justify-content-center flex-direction-column">
+            <p>Variation</p>
+            <div class="width-100 height-auto d-flex align-items-center justify-content-flex-start gap-10 overflow-X">
+               <div class="box border-lightgrey p-10 d-flex align-items-center justify-content-space-around flex-direction-column" *ngFor="let item of sideDishData;let i = index">
+                  <h5 class="m-0">Super Delicious
+                     Pizza
+                  </h5>
+                  <h6 class="m-0 color-orange">₹ 0</h6>
+                  <div class="AddFood pointer">
+                     <i class="bi bi-plus-circle-fill" *ngIf="item.status=='not-added'"></i> <span *ngIf="item.status=='not-added'">Add</span>
+                     <i class="bi bi-dash-circle-fill" *ngIf="item.status=='added'"></i> <span *ngIf="item.status=='added'">Remove</span>
+                  </div>
+               </div>
+            </div>
+            <p>Extras</p>
+            <div class="width-100 height-auto d-flex align-items-center justify-content-flex-start gap-10 overflow-X">
+               <div class="box border-lightgrey p-10 d-flex align-items-center justify-content-space-around flex-direction-column" *ngFor="let item of sideDishData;let i = index">
+                  <h5 class="m-0">Super Delicious
+                     Pizza
+                  </h5>
+                  <h6 class="m-0 color-orange">₹ 30</h6>
+                  <div class="AddFood pointer">
+                     <i class="bi bi-plus-circle-fill"></i> <span>Add</span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="buttons1 width-100 d-flex align-items-center justify-content-flex-end gap-20 mt-10">
+            <span>Total : <p>₹ 30.00</p></span>
+            <button class="bg-white border-orange color-orange" (click)="SideDish=false">Cancel</button>
+            <button class="bg-orange color-white"  (click)="AddFood(1);SideDish=false">Confirm</button>
+         </div>
+      </div>
+   </div>
+
+   <div class="specialNotes width-100 height-100 left-0 bg-overlay position-fixed top-0 z-index-10 d-flex align-items-center justify-content-center" *ngIf="specialNotes">
+      <div class="specialNotes-In bg-white radius-7 p-20">
+         <div class="Top border-bottom-lightgray width-100 d-flex align-items-center justify-content-space-between">
+            <span class="color-black">Tandoori Pasta</span>
+            <i class="bi bi-x color-orange pointer" (click)="specialNotes=false"></i>
+         </div>
+         <div class="Top mt-10">
+            <span class="color-black">Special  Notes</span>
+            <select class="width-100 radius-5 bg-white border-lightgrey border-none oulline-none">
+               <option value="Non-Spicy">Non-Spicy</option>
+               <option value="Extra Sugar">Extra Sugar</option>
+               <option value="Spicy">Spicy</option>
+               <option value="Strong">Strong</option>
+            </select>
+         </div>
+         <div class="buttons width-100 d-flex align-items-center justify-content-flex-end gap-20 mt-10">
+            <button class="bg-white border-orange color-orange" (click)="specialNotes=false">Cancel</button>
+            <button class="bg-orange color-white" (click)="specialNotes=false">Confirm</button>
+         </div>
+      </div>
+   </div>
+
+   </div>
+</section>

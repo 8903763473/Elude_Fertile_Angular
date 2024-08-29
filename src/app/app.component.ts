@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() { }
 
+  leftSide: boolean = false;
+  topHeader: boolean = false;
+  
   menuItems = [
     { id: 1, src: '../assets/menu/Home.svg', alt: 'Home' },
     { id: 2, src: '../assets/menu/Discount.svg', alt: 'Discount' },
@@ -18,7 +22,26 @@ export class AppComponent {
     { id: 7, src: '../assets/menu/Logout.svg', alt: 'Logout' }
   ];
 
-  selectedMenu(data: any, id: any) {
-
+  constructor(public menu: MenuController) {
+    AOS.init({
+      duration: 1200,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false,
+    });
   }
+
+  ngAfterViewInit() {
+    AOS.refresh();
+  }
+
+  selectedMenu(data: any, id: any) {
+    this.menu.close()
+  }
+
+  menus() {
+    console.log('Clicked Menu');
+  }
+
+
 }

@@ -1,3 +1,78 @@
-ion-router-outlet {
+.isleftSideOpen {
     width: calc(100% - 50px) !important;
+    margin-left: 50px !important;
+}
+
+.font-23 {
+    font-size: 23px !important;
+}
+
+// ********************************************WEB SCREEN*****************************************
+@media screen and (min-width:601px) {
+
+    .mobileLogo {
+        display: none !important;
+    }
+
+    .webLogo,
+    .leftSideMenu {
+        display: block !important;
+    }
+
+    .mobileMenu {
+        display: none !important;
+    }
+
+    .menuIcon {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .menuIcon {
+        top: 14px !important;
+    }
+
+    .leftSideMenu,
+    .webLogo {
+        display: none !important;
+    }
+
+    .mobileLogo {
+        display: block !important;
+        width: 100% !important;
+        height: 24px;
+    }
+
+    ion-router-outlet {
+        width: calc(100%) !important;
+        margin-left: 0px !important;
+    }
+
+    ion-title {
+        background: #f47472 !important;
+        height: 100%;
+        min-height: 56px !important;
+    }
+
+    .allMenus {
+        width: 100%;
+        background: white;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .item-content {
+        display: flex;
+        align-items: center;
+    }
+
+    .item-label {
+        margin-left: 8px;
+    }
+
+
 }

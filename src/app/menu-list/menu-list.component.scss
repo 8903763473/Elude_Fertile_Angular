@@ -1,0 +1,1140 @@
+section {
+    padding: 0 10px 0 10px !important;
+
+    .menu_contents {
+        width: calc(100%);
+        height: 100%;
+        display: flex;
+        // display: grid;
+        // grid-template-columns: 78% 21%;
+        gap: 10px;
+
+        .menu_items {
+            .menu_icons {
+                span {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                button {
+                    display: none;
+                }
+            }
+
+            .menuCategory {
+                // overflow-x: scroll !important;
+
+                .menuCategory-In {
+                    height: 85% !important;
+                    width: 100px !important;
+                    min-width: 100px;
+
+
+                    img {
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    .aboutCategory {
+                        height: 40px !important;
+
+                        span {
+                            font-family: Inter;
+                            font-size: 9.2px;
+                            font-weight: 600;
+                            line-height: 11.13px;
+                            text-align: center;
+                            color: black;
+                        }
+
+                        p {
+                            font-family: Inter;
+                            font-size: 7px;
+                            font-weight: 600;
+                            line-height: 6.66px;
+                            text-align: left;
+                            color: #878787;
+                        }
+                    }
+                }
+            }
+
+            .foodTitle {
+                h4 {
+                    font-family: Inter;
+                    font-size: 18.5px;
+                    font-weight: 600;
+                    line-height: 22.39px;
+                    text-align: left;
+                }
+
+                .searchSection {
+
+                    .searchSection-In {
+                        width: 200px;
+                        height: 30px;
+                        background: #FDECEC;
+                        padding: 0 10px;
+                        border-radius: 4px;
+
+                        ion-input {
+                            width: 100%;
+                            height: 30px;
+                            max-height: 30px;
+                            min-height: 30px;
+                            font-family: Quicksand;
+                            font-size: 12px;
+                            font-weight: 400;
+                            line-height: 18.75px;
+                            text-align: left;
+                            color: #535353;
+                            position: relative;
+
+                            i {
+                                position: absolute;
+                                right: 10px;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            .AllMenus {
+                width: 100%;
+                height: 100%;
+                display: flex;
+
+                .menuFood {
+                    .menuFood-In {
+                        width: 100% !important;
+                        min-width: 100px !important;
+
+                        img {
+                            width: 50px;
+                            height: 50px;
+                        }
+
+                        .aboutCategory {
+                            height: auto;
+
+                            span {
+                                font-family: Inter;
+                                font-size: 8.5px;
+                                font-weight: 400;
+                                line-height: 10.29px;
+                                text-align: center;
+                                color: #808683;
+                            }
+
+                            .AddFood {
+                                width: 90%;
+                                // height: 40px;
+                                border-radius: 20px;
+                                padding: 3px 5px;
+                                height: auto;
+                                display: flex;
+                                align-items: center;
+                                justify-content: flex-start;
+                                background-color: #F15350;
+                                gap: 5px;
+
+                                i {
+                                    color: #F9A9A8;
+                                }
+
+                                span {
+                                    font-family: Inter;
+                                    font-size: 10px;
+                                    font-weight: 600;
+                                    line-height: 14.76px;
+                                    text-align: left;
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .menu_summary {
+            position: relative;
+            background: #ffffff !important;
+            transition: 0.3s;
+            min-height: 100vh;
+
+            .summaryTab {
+                height: 23px !important;
+                background: #F8F8F8 !important;
+                border: 2px solid #F2F2F2;
+                padding: 0 !important;
+                border-radius: 3px;
+
+                button {
+                    height: 100% !important;
+                    font-family: Inter;
+                    font-size: 10px;
+                    font-weight: 600;
+                    line-height: 14.52px;
+                    text-align: left;
+                    color: black;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    padding: 3px 10px;
+                    background: none !important;
+                    border: none !important;
+                    transition: background 0.3s ease, border 0.3s ease, border-radius 0.3s ease;
+                }
+
+                .activeTab {
+                    background: #FFCDCC !important;
+                    border-radius: 5px !important;
+                    border: 1px solid red !important;
+                }
+            }
+
+            .menuNotSelected {
+                img {}
+
+                h3 {
+                    font-family: Inter;
+                    font-size: 15px;
+                    font-weight: 600;
+                    line-height: 24.2px;
+                    text-align: left;
+                    color: black;
+                }
+
+                p {
+                    font-family: Inter;
+                    font-size: 10px;
+                    font-weight: 600;
+                    line-height: 14.52px;
+                    text-align: left;
+                    color: black;
+                }
+            }
+
+            .menuSelected {
+                .viewTableOrders {
+                    background: #FFE2E1 !important;
+                    width: 100%;
+                    padding: 2px 4px;
+
+                    span {
+                        font-family: Inter;
+                        font-size: 10px;
+                        font-weight: 700;
+                        line-height: 14.52px;
+                        text-align: left;
+                        color: #F15350;
+                    }
+                }
+
+                .menuSelected-In {
+                    img {
+                        width: 46px !important;
+                        height: 46px !important;
+                    }
+
+                    .menuCenter {
+                        p {
+                            width: 100%;
+                            margin: 0;
+                            font-family: Inter;
+                            font-size: 8px;
+                            font-weight: 600;
+                            line-height: 12.1px;
+                            text-align: left;
+                        }
+
+                        .quantity {
+                            width: 75%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 4px;
+
+                            .specialNotes-icon {
+                                width: 16px !important;
+                            }
+
+                            .quantityIn {
+                                width: auto;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                border: 1px solid #F15350;
+                                border-radius: 5px;
+
+                                span {
+                                    width: 16px;
+                                    height: 16px;
+                                    background-color: #F15350;
+                                    border-radius: 3px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                }
+
+                                ion-input {
+                                    width: 20px;
+                                    max-width: 40px;
+                                    min-width: 20px;
+                                    min-height: 16px !important;
+                                    color: #F15350;
+                                    text-align: center;
+                                    font-family: Inter;
+                                    font-size: 8px;
+                                    font-weight: 600;
+                                    line-height: 10.43px;
+                                }
+                            }
+                        }
+                    }
+
+                    .menuRight {
+                        display: flex;
+                        align-items: end;
+                        justify-content: center;
+                        flex-direction: column;
+                        gap: 15px;
+
+                        i {
+                            color: black;
+                        }
+
+                        span {
+                            font-family: Inter;
+                            font-size: 10px;
+                            font-weight: 600;
+                            line-height: 14.52px;
+                            text-align: right;
+                            color: #F15350;
+                            text-wrap: nowrap;
+                        }
+                    }
+                }
+            }
+
+            .swipeup {
+                background-color: #FEE9E9;
+
+                .swipeAllFields {
+                    height: auto !important;
+                }
+
+                .swipeup-In {
+                    padding: 5px;
+                    // border-bottom: 0.5px solid #F1535066;
+
+                    .key {
+                        width: 80px !important;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+
+                    a {
+                        font-family: Inter;
+                        font-size: 8px;
+                        font-weight: 300;
+                        line-height: 9.68px;
+                        text-align: left;
+                        color: #8D8D8D;
+                    }
+
+                    span {
+                        font-family: Inter;
+                        font-size: 10px;
+                        font-weight: 500;
+                        line-height: 12.1px;
+                        text-align: left;
+                        color: black;
+                    }
+
+                    button {
+                        background: #FFFFFF;
+                        border-bottom: 1px solid #F1535066;
+                        font-family: Inter;
+                        font-size: 10px;
+                        font-weight: 600;
+                        line-height: 13.31px;
+                        text-align: left;
+                        width: auto;
+                        padding: 2px 8px;
+                        border-radius: 3px;
+                    }
+
+                    p {
+                        font-family: Inter;
+                        font-size: 10px;
+                        font-weight: 600;
+                        line-height: 13.31px;
+                        text-align: left;
+                    }
+                }
+            }
+
+            .TotalAmt {
+                height: 110px;
+                background: #F6F6F6;
+
+                .amt {
+                    width: 90% !important;
+                    height: 22px !important;
+                    font-family: Inter;
+                    font-size: 11.5px;
+                    font-weight: 600;
+                    line-height: 13.92px;
+                    text-align: left;
+                    color: black;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    p {
+                        font-family: Inter;
+                        font-size: 9.5px;
+                        font-weight: 400;
+                        line-height: 11.5px;
+                        text-align: left;
+                        color: black;
+                    }
+                }
+
+                .emptyBorder {
+                    width: 96%;
+                    overflow: hidden;
+                    text-wrap: nowrap;
+                }
+
+                .amountTotalButton {
+                    button {
+                        width: 100px;
+                        height: 25px;
+                        border-radius: 4px;
+                        font-family: Inter;
+                        font-size: 8px;
+                        font-weight: 600;
+                        line-height: 14.52px;
+                        text-align: left;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+
+            .paymentOptions {
+                .paymentOptions-In {
+                    .innerpaySection {
+                        span {
+                            border: 1px solid grey;
+                            padding: 7px 13px;
+                            border-radius: 4px !important;
+
+                            img {
+                                width: 20px;
+                                height: 15px;
+                            }
+                        }
+
+                        p {
+                            color: black;
+                            font-family: Inter;
+                            font-size: 8.5px;
+                            font-weight: 600;
+                            line-height: 10.29px;
+                            text-align: center;
+                            margin-top: 12px !important;
+                        }
+                    }
+                }
+            }
+
+
+            .bottom-buttons {
+                button {
+                    height: 23px;
+                    width: 69px;
+                    font-size: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    background: #F15350;
+                    border: none !important;
+                    border-radius: 5px;
+                    font-family: Inter;
+                    font-size: 9px;
+                    font-weight: 600;
+                    line-height: 14.52px;
+                    text-align: left;
+
+                }
+            }
+        }
+    }
+
+    .splitBill-in {
+        width: 400px;
+        height: 300px;
+        background-color: white !important;
+
+        .splitBill-in-Top {
+            span {
+                font-family: Inter;
+                font-size: 15px;
+                font-weight: 600;
+                line-height: 24.2px;
+                text-align: left;
+            }
+
+            i {
+                font-size: 15px;
+            }
+        }
+
+        .splitBill-in-bottom {
+            width: 100%;
+            height: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            .splitBill-in-bottom-left {
+                width: 80px;
+                height: auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 4px;
+                border: 1px solid grey;
+                flex-direction: column;
+                background: #FFE9E9;
+
+                .splitBill-left-box {
+                    width: 100%;
+                    height: 80px;
+                    border-bottom: 1px solid grey;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    span {
+                        font-family: Inter;
+                        font-size: 11px;
+                        font-weight: 600;
+                        line-height: 19.36px;
+                        text-align: center;
+                    }
+
+                    img {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+
+            .splitBill-in-bottom-right {
+                width: 80%;
+                height: 95%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                border: 1px solid grey;
+                border-radius: 4px;
+                padding: 15px;
+                gap: 15px;
+                position: relative;
+
+                span {
+                    font-family: Inter;
+                    font-size: 12px;
+                    font-weight: 600;
+                    line-height: 19.36px;
+                    text-align: center;
+                }
+
+                ion-input {
+                    font-family: Inter;
+                    font-size: 11px;
+                    font-weight: 400;
+                    line-height: 19.36px;
+                    text-align: left;
+                    border: 1px solid #C0BFBF;
+                    border-radius: 4px;
+                    height: 23px;
+                    min-height: 23px;
+                    color: #C0BFBF;
+                    --padding-start: 10px;
+                }
+
+                .buttons {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 20px;
+
+                    button {
+                        width: 80px;
+                        height: 20px;
+                        border-radius: 3px;
+                        font-family: Inter;
+                        font-size: 10px;
+                        font-weight: 600;
+                        text-align: center;
+                    }
+                }
+
+                .addMore {
+                    position: absolute;
+                    top: 8px;
+                    right: 7px;
+                    padding: 3px 6px;
+                    border-radius: 3px;
+                    font-family: Inter;
+                    font-size: 8px;
+                    font-weight: 600;
+                    line-height: 11.52px;
+                    text-align: center;
+                }
+
+                .input {
+                    .inputTitle {
+                        width: 100%;
+                        font-family: Inter;
+                        font-size: 10px;
+                        font-weight: 400;
+                        line-height: 19.36px;
+                        text-align: left;
+                        margin: 0 !important;
+                        color: black;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .removeFood {
+        .removeFoodIn {
+            width: 400px;
+            height: auto;
+
+            .removeFoodIn-Top {
+                span {
+                    font-family: Inter;
+                    font-size: 15px;
+                    font-weight: 600;
+                    line-height: 31.47px;
+                    text-align: left;
+
+                }
+            }
+
+            h3 {
+                font-family: Inter;
+                font-size: 10px;
+                font-weight: 500;
+                line-height: 26.63px;
+                text-align: left;
+            }
+
+            .reasonBox {
+                min-height: 70px;
+                max-height: 70px;
+            }
+
+            .buttons1 {
+
+                button {
+                    width: 80px;
+                    height: 20px;
+                    border-radius: 3px;
+                    font-family: Inter;
+                    font-size: 10px;
+                    font-weight: 600;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .applyDiscount {
+        padding: 10px 0 10px 0 !important;
+
+        .applyDiscount-In {
+            box-shadow: 0px 5px 7px 4px #D2D2D24D;
+            height: min-content !important;
+
+            .closeIcon {
+                top: 10px !important;
+                right: 10px !important;
+                font-size: 20px;
+            }
+
+            .title {
+                font-family: Inter;
+                font-size: 15px;
+                font-weight: 600;
+                line-height: 30.26px;
+                text-align: left;
+                color: black;
+            }
+
+            .applySection {
+                .doApply {
+
+                    ion-input,
+                    select {
+                        width: 56%;
+                        font-family: Inter;
+                        font-size: 15px;
+                        font-weight: 200;
+                        line-height: 18.15px;
+                        text-align: left;
+                        min-height: 28px !important;
+                        --padding-start: 10px !important;
+                    }
+
+                    p {
+                        font-family: Inter;
+                        font-size: 22px;
+                        font-weight: 400;
+                        line-height: 26.63px;
+                        text-align: left;
+                    }
+
+                }
+
+                .buttons {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    gap: 5px;
+
+                    button {
+                        width: 60px;
+                        height: 20px;
+                        border-radius: 3px;
+                        font-family: Inter;
+                        font-size: 10px;
+                        font-weight: 600;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .applyDiscount-bottom {
+                .discount-bottom-in {
+                    width: 200px !important;
+                    flex-direction: column !important;
+
+                    .radio {
+                        .form-check {
+                            font-family: Inter;
+                            font-size: 10px;
+                            font-weight: 400;
+                            line-height: 26.63px;
+                            text-align: left;
+                            color: rgb(0, 0, 0);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 5px;
+                        }
+                    }
+
+                    .buttons {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        gap: 5px;
+
+                        button {
+                            width: 60px;
+                            height: 20px;
+                            border-radius: 3px;
+                            font-family: Inter;
+                            font-size: 10px;
+                            font-weight: 600;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    .sideDish {
+        .sideDish-In {
+            width: 400px;
+            height: auto;
+
+            .buttons1 {
+                position: relative;
+
+                span {
+                    font-family: Inter;
+                    font-size: 11px;
+                    font-weight: 400;
+                    line-height: 25.41px;
+                    text-align: right;
+                    color: black;
+                    position: absolute;
+                    left: 0;
+                    flex-wrap: nowrap;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+
+                    p {
+                        color: #F15350 !important;
+                    }
+                }
+
+                button {
+                    width: 80px;
+                    height: 20px;
+                    border-radius: 3px;
+                    font-family: Inter;
+                    font-size: 10px;
+                    font-weight: 600;
+                    text-align: center;
+                }
+            }
+
+            .sideDish-top {
+                span {
+                    font-family: Inter;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 31.47px;
+                    text-align: left;
+                }
+
+                ion-input {
+                    width: 160px;
+                    background: #FDECEC;
+                    min-height: 30px;
+                    border-radius: 4px;
+                    --padding-start: 15px;
+                    font-family: Quicksand;
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 15px;
+                    text-align: left;
+                    color: black;
+                    position: relative;
+
+                    i {
+                        right: 6px;
+                        top: 8px;
+                    }
+                }
+            }
+
+            .sideDish-content {
+                p {
+                    font-family: Inter;
+                    font-size: 10.2px;
+                    font-weight: 600;
+                    line-height: 12.34px;
+                    text-align: left;
+                    color: black;
+                }
+
+                .box {
+                    width: 100px;
+                    height: 100px;
+                    min-width: 100px;
+                    border-radius: 20px;
+
+                    h5 {
+                        font-family: Inter;
+                        font-size: 9.5px;
+                        font-weight: 400;
+                        line-height: 11.5px;
+                        text-align: center;
+                        color: #8A8A8A;
+                    }
+
+                    h6 {
+                        font-family: Inter;
+                        font-size: 9.5px;
+                        font-weight: 600;
+                        line-height: 11.5px;
+                        text-align: center;
+                        color: #F15350;
+                    }
+
+                    .AddFood {
+                        width: 90%;
+                        border-radius: 20px;
+                        padding: 3px 5px;
+                        height: auto;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        background-color: #F15350;
+                        gap: 5px;
+
+                        i {
+                            color: #F9A9A8;
+                        }
+
+                        span {
+                            font-family: Inter;
+                            font-size: 10px;
+                            font-weight: 600;
+                            line-height: 14.76px;
+                            text-align: left;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .specialNotes {
+        .specialNotes-In {
+            width: 400px;
+            height: auto;
+
+            .Top {
+                span {
+                    font-family: Inter;
+                    font-size: 12px;
+                    font-weight: 600;
+                    line-height: 24.2px;
+                    text-align: center;
+                }
+
+                select {
+                    height: 30px;
+                    font-family: Inter;
+                    font-size: 10px;
+                    font-weight: 500;
+                    line-height: 18.15px;
+                    text-align: left;
+                    color: grey !important;
+                }
+            }
+
+            .buttons {
+
+                button {
+                    width: 80px;
+                    height: 20px;
+                    border-radius: 3px;
+                    font-family: Inter;
+                    font-size: 10px;
+                    font-weight: 600;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width:1200px) {
+    .menu_contents {
+        width: calc(100% - 250px) !important;
+    }
+}
+
+
+@media screen and (max-width:600px) {
+    .menuCategory-In {
+        width: 80px !important;
+        min-width: 80px !important;
+    }
+}
+
+
+@media screen and (max-width:760px) {
+    .menu_contents {
+        width: calc(100% - 0px) !important;
+    }
+
+    .menu_summary {
+        max-width: 260px !important;
+        position: fixed !important;
+        right: -1000px;
+    }
+
+    .menu_icons {
+        button {
+            display: flex !important;
+            border: 1px solid #F15350;
+            background: white;
+            color: #F15350;
+            padding: 3px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    }
+
+    .inTableOpen {
+        right: 0 !important;
+    }
+}
+
+
+@media screen and (max-width:440px) {
+    .searchSection {
+        width: 100% !important;
+        justify-content: space-between !important;
+
+        .searchSection-In {
+            width: 48% !important;
+        }
+    }
+
+    .sideDish {
+        padding-top: 60px !important;
+
+        .sideDish-In {
+            height: 90% !important;
+            width: 90% !important;
+            overflow: scroll;
+        }
+    }
+
+    .removeFoodIn {
+        width: 90% !important;
+
+        p {
+            font-size: 8px !important;
+        }
+
+        .buttons1 {
+            gap: 5px !important;
+        }
+    }
+
+    .specialNotes-In {
+        width: 90% !important;
+    }
+
+    .splitBill-in {
+        width: 90% !important;
+        height: auto !important;
+
+        .splitBill-in-bottom {
+            flex-direction: column !important;
+        }
+
+        .splitBill-in-bottom-left {
+            width: auto !important;
+            height: 60px !important;
+            flex-direction: row !important;
+        }
+
+        .splitBill-left-box {
+            width: 60px !important;
+            height: 60px !important;
+            border-bottom: none !important;
+            gap: 5px !important;
+
+            span {
+                font-size: 8px !important;
+                line-height: 13.36px !important;
+            }
+        }
+
+        .splitBill-in-bottom-right {
+            width: 100% !important;
+            height: auto !important;
+            padding: 10px !important;
+            justify-content: flex-start !important;
+
+            span {
+                font-size: 8px !important;
+            }
+        }
+
+        .mob-border {
+            border-right: 1px solid grey !important;
+        }
+
+        .inputTitle,
+        ion-input {
+            font-size: 8px !important;
+        }
+
+    }
+}
+
+
+// ******************************************STOP SCROLL*********************************************
+
+.menu_contents,
+.menu_items,
+section {
+    min-height: 42vh !important;
+    max-height: 91vh !important;
+}
+
+
+// *********************************************ADDITIONAL STYLES***************************************
+
+.width-20px {
+    width: 20px !important;
+}
+
+.height-20px {
+    height: 20px !important;
+}
+
+.height-140px {
+    height: 140px !important;
+}
+
+.width-140 {
+    width: 140px !important;
+}
+
+.splitbillActive {
+    color: #F15350 !important;
+}
+
+.native-textarea {
+    padding: 0 !important;
+}
+
+.width-400 {
+    width: 400px !important;
+}
+
+.border-bottom-lightgray {
+    border-bottom: 1px solid #e0e0e0 !important;
+}
+
+.max-height-93 {
+    max-height: 93vh !important;
+}
+
+.min-width-250px {
+    min-width: 250px !important;
+}
+
+.z-index-1 {
+    z-index: 1 !important;
+}
