@@ -1,14 +1,13 @@
-.isleftSideOpen {
-    width: calc(100% - 50px) !important;
-    margin-left: 50px !important;
-}
-
 .font-23 {
     font-size: 23px !important;
 }
 
 // ********************************************WEB SCREEN*****************************************
 @media screen and (min-width:601px) {
+    .isleftSideOpen {
+        width: calc(100% - 50px) !important;
+        margin-left: 50px !important;
+    }
 
     .mobileLogo {
         display: none !important;
@@ -29,6 +28,10 @@
 }
 
 @media screen and (max-width:600px) {
+    .isleftSideOpen {
+        width: calc(100%) !important;
+        margin-left: 0px !important;
+    }
     .menuIcon {
         top: 14px !important;
     }
